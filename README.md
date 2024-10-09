@@ -1,7 +1,7 @@
-# Diccionario para Programadores: Inglés - Español
+# 📚 Diccionario para Programadores: Inglés - Español
 
-## Colaboradores del Proyecto
-Este diccionario ha sido creado en colaboración por un grupo de estudiantes apasionados por la programación:
+## 👥 Colaboradores del Proyecto
+Este diccionario fue creado por un grupo de estudiantes apasionados por la programación:
 
 - **Fernando Ibáñez**  (@FernandoEkisde)
 - **Jesús Vidal**  (@Jvidal47)
@@ -13,12 +13,12 @@ Este diccionario ha sido creado en colaboración por un grupo de estudiantes apa
 
 ---
 
-## Descripción del Proyecto
-Este diccionario tiene como objetivo facilitar la comprensión de términos técnicos en el ámbito de la programación, proporcionando traducciones precisas y definiciones claras. Es un recurso diseñado para ayudar a estudiantes y profesionales a mejorar su vocabulario técnico y habilidades en programación.
+## 📖 Descripción del Proyecto
+Este diccionario ayuda a entender términos técnicos de programación con traducciones y definiciones claras. Un recurso útil para estudiantes y profesionales. 💻✨
 
 **Agradecimientos:**  
-Agradecemos a todos los colaboradores por su dedicación y esfuerzo en la creación de este recurso, que busca ser útil para la comunidad de programadores.
+Gracias a todos los colaboradores por su esfuerzo en este recurso para la comunidad de programadores. 🙌🎉
 
 ---
 
-¡Esperamos que encuentres este diccionario útil en tu aprendizaje y práctica de la programación!
+¡Esperamos que te sea útil en tu aprendizaje de la programación! 🚀💡
