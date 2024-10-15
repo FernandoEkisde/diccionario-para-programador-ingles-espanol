@@ -14,11 +14,11 @@ Este diccionario fue creado por un grupo de estudiantes apasionados por la progr
 ---
 
 ## 📖 Descripción del Proyecto
-Este diccionario ayuda a entender términos técnicos de programación con traducciones y definiciones claras. Un recurso útil para estudiantes y profesionales. 💻✨
+Este diccionario está diseñado para facilitar el aprendizaje de la programación, ofreciendo traducciones claras y precisas de términos técnicos. Es un recurso que combina simplicidad y utilidad, pensado tanto para quienes comienzan en este mundo como para aquellos que buscan afinar sus conocimientos. 💻✨
 
 **Agradecimientos:**  
-Gracias a todos los colaboradores por su esfuerzo en este recurso para la comunidad de programadores. 🙌🎉
+Un agradecimiento especial a todos los colaboradores, cuya dedicación y esfuerzo han hecho posible este valioso recurso para la comunidad de programadores. 🙌🎉
 
 ---
 
-¡Esperamos que te sea útil en tu aprendizaje de la programación! 🚀💡
+💡 **Nota especial:** Esperamos que este diccionario no solo te ayude a comprender términos técnicos, sino que también te inspire a seguir explorando el vasto y emocionante mundo de la programación. 🚀
