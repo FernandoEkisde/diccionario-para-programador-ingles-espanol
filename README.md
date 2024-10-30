@@ -23,5 +23,5 @@ Un agradecimiento especial a todos los colaboradores, cuya dedicación y esfuerz
 
 💡 **Nota especial:** Esperamos que este diccionario no solo te ayude a comprender términos técnicos, sino que también te inspire a seguir explorando el vasto y emocionante mundo de la programación. 🚀
 
-<footer>Trabajo estudiantil</footer>
+<h1>Trabajo estudiantil</h1>
 <img src="https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg" alt="Snake animation" />
