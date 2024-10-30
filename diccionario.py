@@ -49,3 +49,27 @@ terminos = {
 # crear un diccionario de listas para agrupar terminos por letra inicial
 terminos_por_letra = {}
 
+
+
+
+
+
+
+
+
+
+
+
+
+# Barra de búsqueda interactiva
+def barra_de_busqueda():
+    print("Barra de búsqueda de términos técnicos (ingresa una letra o una palabra clave):")
+    while True:
+        entrada = input("Buscar (o escribe 'salir' para terminar): ").strip()
+        if entrada.lower() == 'salir':
+            print("¡Búsqueda finalizada!")
+            break
+        buscar_termino(entrada)
+
+# Ejecutar la barra de búsqueda
+barra_de_busqueda()
