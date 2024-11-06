@@ -260,3 +260,36 @@ nd(nueva_palabra)
 
   print("palabra agregada exitosamente."
 if idioma_actual =="español" else"word added successfully.")
+def menu():
+    while True:
+        print("\n--- Menú ---" if idioma_actual == "español" else "\n--- Menu ---")
+
+        opciones = [
+            "Ver la Lista Completa de Palabras 📜",  # "View the Complete Word List 📜"
+            "Cambiar Idioma 🌍",                       # "Change Language 🌍"
+            "Buscar por letra 🔍",                     # "Search by Letter 🔍"
+            "Agregar Palabra Nueva ✨",                # "Add New Word ✨"
+            "Salir 🕯️"                               # "Exit 🕯️"
+        ]
+        for i, opcion in enumerate(opciones, start=1):
+            print(f"{i}. {opcion}")
+        
+        opcion = input("Seleccione una opción: " if idioma_actual == "español" else "Select an option: ")
+        if opcion == "1":
+            ver_lista_completa()
+        elif opcion == "2":
+            cambiar_idioma()
+        elif opcion == "3":
+            letra = input("Ingrese la letra a buscar: " if idioma_actual == "español" else "Enter the letter to search: ")
+            buscar_palabra(letra)
+        elif opcion == "4":
+            agregar_palabra()
+        elif opcion == "5":
+            print("¡Hasta luego! 👋" if idioma_actual == "español" else "Goodbye! 👋")
+            break
+        else:
+            print("Opción inválida. Intente nuevamente." if idioma_actual == "español" else "Invalid option. Please try again.")
+
+# Ejecutar el menú
+if __name__ == "__main__":
+    menu()
