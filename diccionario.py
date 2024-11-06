@@ -189,3 +189,53 @@ diccionario = {
     # Z
     "zócalo": ("Punto de conexión en un sistema que permite la comunicación entre diferentes componentes.", "Socket"),
 }
+
+idioma_actual = "español" #'español' o 'ingles'
+
+#Crear un diccionario separado por letras
+diccionario_por_letras = {}
+for palabra in diccionario.keys():
+    letra_inicial = palabra[0].lower()
+    if letra_inicial not in diccionario_por_letras
+    diccionario_por_letras[letra_inicial] = []
+
+diccionario_por_letros[letras_inicial].append(palabra)
+#Función para mostrar la lista completa de palabras
+def ver_lista_completa(categoria=None)
+print("\nlista de Palabras 📜:" if idioma_actual == "español" else "\nWord list📜:")
+ for letra, palabras in sorted(diccionario_por_letras.items()):
+     print(f"\nPlabras que comienzan'{letra.upper()}':")
+     for palabra in palabras:
+         definicion, traduccion = diccionario [palabra]
+         print(f"{palbra}: {deficion} ({traduccion})")
+         #Funcion para cambiar el idioma
+def cambiar_idioma():
+    global idioma_actual
+    idioma_actual = "ingles" if idioma_actual == "español" else "español"
+
+mensaje = "¡Palabras de poder en inglés activadas!" if idioma_actual == "ingles" else "¡Palabras de poder en español activadas!"
+print(f\n{mensaje}")
+
+#Funci+o para buscar palabras por letra
+def buscar_palabra(letra):
+    if not letra:
+        print("Por favor, ingrese una letra válida." if idioma_actual == "español" else "Please enter a valid letter.")
+        return
+
+letra = letra.lower()
+print(f"\nBuscando palabras que comienzan con '{letra}'🔍:"if idioma_actual == "español" else f"\nSearching for words starting with '{letra}'🔍:")
+if letra in diccionario_por_letras:
+    for palabra in diccionario_por_letras[letra]:
+        definicion, traduccion = diccionario[palabra]
+        print(f"{palbra}: {definicion} ({traduccion})")
+else:
+    print("No se encontraron palabras." if idioma_actual == "español" else "No words found.")
+    #Función para agregar una nueva palabra
+    def agregar_palabra():
+        nueva_palabra = input("Ingrese la nueva palabra: ").strip()
+        if not nueva_palabra:
+            print("Por favor, ingrese una palabra válida." if idioma_actual == "español" else "Please enter a valid word.")
+            return
+            if nueva_palabra in diccionario:
+                print("La palabra ya existe en el diccionario." if idioma_actual == "español" else "The word already exists in the dicctionary")
+                return
