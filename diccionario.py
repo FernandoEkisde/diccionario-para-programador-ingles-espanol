@@ -239,3 +239,24 @@ else:
             if nueva_palabra in diccionario:
                 print("La palabra ya existe en el diccionario." if idioma_actual == "español" else "The word already exists in the dicctionary")
                 return
+
+deficion=input("ingrese la deficion:").strip()
+traduccion=input("ingrese la traduccion al ingles:").strip()
+
+if not definicion or not traduccion: 
+    print("por favor, ingrese una definicion y traduccion validas,"if idioma_actual=="español" else "please enter a valid definition and translation.")
+
+return 
+diccionario[nueva_palabra]=(deficion, traduccion)
+
+#Actualizar el diccionario por letras 
+
+letra_inicial=nueva_palabra[0].lawer()
+  if letra_inicial not in
+diccionario_por_letras:
+
+    diccionario_por_letras[letra_inicial].appe
+nd(nueva_palabra)
+
+  print("palabra agregada exitosamente."
+if idioma_acutual =="español" else"word added successfully."
