@@ -259,4 +259,4 @@ diccionario_por_letras:
 nd(nueva_palabra)
 
   print("palabra agregada exitosamente."
-if idioma_acutual =="español" else"word added successfully."
+if idioma_actual =="español" else"word added successfully.")
