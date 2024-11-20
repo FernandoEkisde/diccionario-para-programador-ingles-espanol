@@ -232,7 +232,7 @@ integrantes = [
         "Edad": 17,
         "Rol": "Desarrollador",
         "Email": "maximiliano.veliz.aguilar@alumnos.cmch.maristas.cl",
-        "Alias": "El cafe, esclavo, color humilde, carton mojado, carbon de parrilla, milhouse quemado, sin cuerpo, humor negro."
+        "Alias": "El cafe, esclavo, color humilde, carton mojado, carbon de parrilla, milhouse quemado, sin cuerpo, humor negro, el cuerpo se le quedo en la montaña,."
     },
     {
         "Nombre": "Jesus Vidal",
