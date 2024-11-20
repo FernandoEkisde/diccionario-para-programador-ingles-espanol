@@ -225,14 +225,14 @@ integrantes = [
         "Edad": 17,
         "Rol": "Desarrollador En Jefe",
         "Email": "Gabriel.pedreros.becerra@alumnos.cmch.maristas.cl",
-        "Alias": "El Manco para el Futbol, Cantante estrella, milhouse"
+        "Alias": "El Manco para el Futbol, Cantante estrella, milhouse, king of fights"
     },
     {
         "Nombre": "Maximiliano Veliz",
         "Edad": 17,
         "Rol": "Desarrollador",
         "Email": "maximiliano.veliz.aguilar@alumnos.cmch.maristas.cl",
-        "Alias": "El cafe, esclavo, color humilde, carton mojado, carbon de parrilla, milhouse quemado."
+        "Alias": "El cafe, esclavo, color humilde, carton mojado, carbon de parrilla, milhouse quemado, sin cuerpo, humor negro."
     },
     {
         "Nombre": "Jesus Vidal",
@@ -246,14 +246,14 @@ integrantes = [
         "Edad": 17,
         "Rol": "Diseñador En Jefe",
         "Email": "angel.zuniga.villalobos@alumnos.cmch.maristas.cl",
-        "Alias": "El mensajero del diablo, el compañero de el diablo, cerbero (por perro), Stephen Hawking,Professor X/Charles Xavier, rayo mqueen"
+        "Alias": "El mensajero del diablo, el compañero de el diablo, cerbero (por perro), Stephen Hawking,Professor X/Charles Xavier, rayo mqueen, el cojo, el manco, el sin espalda"
     },
     {
         "Nombre": "Valentina San Martin",
         "Edad": 16,
         "Rol": "Diseñadora",
         "Email": "valentina.sanmartin.roman@alumnos.cmch.maristas.cl",
-        "Alias": "la otaku, la lesbiana,el gusto de la concha"
+        "Alias": "la otaku, la lesbiana,el gusto de la concha, enferma, rarita"
     },
     {
         "Nombre": "Matias Lara",
@@ -271,7 +271,7 @@ integrantes = [
                   "necesitado (de pico), autista conchetumare, poo de kung fu panda, los tres chanchitos en uno, "
                   "la vaca lola, winnie pooh, el hombre topo grande, pie grande, el mano de pajero, "
                   "el mas cayos que manos, el compra terreno, "
-                  "el loco de los gatos, don barriga, ñoño, troncha toro, rasputia,")
+                  "el loco de los gatos, don barriga, ñoño, troncha toro, rasputia, el que dejo manco a su madre, devuelvame el dinero que lloro")
     }
 ]
 
