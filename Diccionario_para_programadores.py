@@ -4,6 +4,318 @@ import pyttsx3
 # Inicializar el motor de síntesis de voz
 engine = pyttsx3.init()
 
+# Idioma actual
+idioma_actual = "español"
+
+# Diccionario de términos de programación
+diccionario_programacion = {
+    # Términos Básicos
+    "abstracción": ("Concepto de simplificar problemas complejos ocultando detalles innecesarios.", "Abstraction"),
+    "algoritmo": ("Conjunto de instrucciones o reglas bien definidas para resolver un problema.", "Algorithm"),
+    "argumento": ("Valor que se pasa a una función cuando es llamada.", "Argument"),
+    "booleano": ("Tipo de dato que puede tener solo dos valores: verdadero o falso.", "Boolean"),
+    "bucle": ("Estructura de control que permite repetir un bloque de código múltiples veces.", "Loop"),
+    "clase": ("Plantilla para crear objetos que define sus propiedades y métodos.", "Class"),
+    "condicional": ("Estructura que permite ejecutar código basado en una condición.", "Conditional"),
+    "función": ("Bloque de código reutilizable que realiza una tarea específica.", "Function"),
+    "if": ("Palabra clave para crear una condición condicional.", "If Statement"),
+    "for": ("Bucle que se usa para iterar sobre una secuencia.", "For Loop"),
+    "while": ("Bucle que se ejecuta mientras una condición sea verdadera.", "While Loop"),
+    "variable": ("Espacio de almacenamiento que tiene un nombre y puede contener un valor.", "Variable"),
+    "return": ("Palabra clave que devuelve un valor de una función.", "Return"),
+    "tipo de dato": ("Clasificación de los datos que determina qué tipo de valores puede contener.", "Data Type"),
+    "string": ("Tipo de dato que representa una secuencia de caracteres.", "String"),
+    "número": ("Tipo de dato que representa valores numéricos.", "Number"),
+    "carácter": ("Tipo de dato que representa un solo símbolo.", "Character"),
+    "lista": ("Colección ordenada de elementos que puede contener diferentes tipos de datos.", "List"),
+    "diccionario": ("Estructura de datos que almacena pares clave-valor.", "Dictionary"),
+    "tupla": ("Colección ordenada e inmutable de elementos.", "Tuple"),
+    "conjunto": ("Colección no ordenada de elementos únicos.", "Set"),
+    "excepción": ("Evento que ocurre durante la ejecución de un programa y altera su flujo normal.", "Exception"),
+    "módulo": ("Archivo que contiene definiciones de funciones y variables que se pueden reutilizar.", "Module"),
+    "paquete": ("Colección de módulos relacionados que se pueden distribuir y usar juntos.", "Package"),
+    "importar": ("Instrucción que permite utilizar un módulo o paquete en un programa.", "Import"),
+    "comentario": ("Texto en el código que no se ejecuta y se utiliza para explicar el código.", "Comment"),
+    "indentación": ("Uso de espacios o tabulaciones para definir la estructura del código.", "Indentation"),
+    "sintaxis": ("Conjunto de reglas que define la estructura de un lenguaje de programación.", "Syntax"),
+    "compilador": ("Programa que traduce el código fuente a código máquina.", "Compiler"),
+    "intérprete": ("Programa que ejecuta el código fuente línea por línea.", "Interpreter"),
+    "debugging": ("Proceso de encontrar y corregir errores en el código.", "Debugging"),
+    "bucle anidado": ("Bucle dentro de otro bucle.", "Nested Loop"),
+    "función anónima": ("Función que no tiene un nombre definido.", "Anonymous Function"),
+    "callback": ("Función que se pasa como argumento a otra función y se ejecuta después.", "Callback"),
+    "recursión": ("Cuando una función se llama a sí misma para resolver un problema.", "Recursion"),
+    "algoritmo de búsqueda": ("Método para encontrar un elemento en una colección de datos.", "Search Algorithm"),
+    "algoritmo de ordenamiento": ("Método para reorganizar elementos en un orden específico.", "Sorting Algorithm"),
+    "estructura de datos": ("Forma de organizar y almacenar datos para su uso eficiente.", "Data Structure"),
+    "booleano": ("Tipo de dato que puede ser verdadero o falso.", "Boolean"),
+    "entrada": ("Datos que se proporcionan a un programa.", "Input"),
+    "salida": ("Datos que un programa produce como resultado.", "Output"),
+    "prototipo": ("Modelo inicial de un objeto o función.", "Prototype"),
+    "interfaz": ("Conjunto de métodos que una clase debe implementar.", "Interface"),
+    "herencia": ("Mecanismo que permite a una clase heredar propiedades de otra clase.", "Inheritance"),
+    "instancia": ("Objeto creado a partir de una clase.", "Instance"),
+    "método": ("Función que pertenece a una clase.", "Method"),
+    "atributo": ("Variable que pertenece a una clase o instancia.", "Attribute"),
+    "constructor": ("Método especial que se llama al crear un objeto.", "Constructor"),
+    "destructor": ("Método que se llama al destruir un objeto.", "Destructor"),
+    "polimorfismo": ("Capacidad de una función de comportarse diferente según el contexto.", "Polymorphism"),
+    "encapsulamiento": ("Principio de ocultar los detalles internos de una clase.", "Encapsulation"),
+    "namespace": ("Espacio que contiene un conjunto de identificadores únicos.", "Namespace"),
+    "operador": ("Símbolo que indica una operación a realizar.", "Operator"),
+    "parámetro": ("Variable que se utiliza en la definición de una función para recibir un argumento.", "Parameter"),
+    "sistema de control de versiones": ("Herramienta que permite gestionar cambios en el código fuente.", "Version Control System"),
+    "API": ("Interfaz de Programación de Aplicaciones, permite la comunicación entre diferentes sistemas.", "API"),
+    "microservicios": ("Arquitectura que estructura una aplicación como una colección de servicios pequeños y autónomos.", "Microservices"),
+    "sistemas distribuidos": ("Conjunto de computadoras que trabajan juntas para lograr un objetivo común.", "Distributed Systems"),
+    "programación funcional": ("Paradigma que trata la computación como la evaluación de funciones matemáticas.", "Functional Programming"),
+    "programación orientada a objetos": ("Paradigma de programación que utiliza objetos y clases.", "Object-Oriented Programming"),
+    "patrones de diseño": ("Soluciones reutilizables a problemas comunes en el diseño de software.", "Design Patterns"),
+    "multihilo": ("Técnica que permite la ejecución concurrente de múltiples hilos de ejecución.", "Multithreading"),
+    "base de datos": ("Sistema que permite almacenar, modificar y extraer información de manera estructurada.", "Database"),
+    "SQL": ("Lenguaje de consulta estructurado utilizado para interactuar con bases de datos.", "SQL"),
+    "noSQL": ("Tipo de base de datos que no utiliza el modelo relacional.", "NoSQL"),
+    "caché": ("Almacenamiento temporal de datos para acelerar el acceso a información frecuentemente utilizada.", "Cache"),
+    "servidor": ("Computadora o programa que proporciona servicios a otros programas o dispositivos.", "Server"),
+    "cliente": ("Programa o dispositivo que solicita servicios a un servidor.", "Client"),
+    "red": ("Conjunto de computadoras interconectadas que pueden comunicarse entre sí.", "Network"),
+    "protocolo": ("Conjunto de reglas que determinan cómo se comunican los dispositivos en una red.", "Protocol"),
+    "cifrado": ("Proceso de convertir información en un formato seguro para protegerla.", "Encryption"),
+    "desarrollo ágil": ("Metodología de desarrollo de software que promueve la flexibilidad y la colaboración.", "Agile Development"),
+    "metodología": ("Conjunto de métodos y técnicas utilizadas en un proceso de desarrollo.", "Methodology"),
+    "pruebas unitarias": ("Pruebas que verifican el funcionamiento de componentes individuales del código.", "Unit Testing"),
+    "integración continua": ("Práctica de fusionar cambios de código frecuentemente para detectar errores rápidamente.", "Continuous Integration"),
+    "despliegue continuo": ("Práctica de automatizar el despliegue de aplicaciones en producción.", "Continuous Deployment"),
+    "devops": ("Conjunto de prácticas que combinan el desarrollo de software y las operaciones de TI.", "DevOps"),
+    "contenedor": ("Unidad estándar de software que empaqueta el código y todas sus dependencias.", "Container"),
+    "Docker": ("Plataforma que permite crear, desplegar y ejecutar aplicaciones en contenedores.", "Docker"),
+    "Kubernetes": ("Sistema de orquestación para automatizar la implementación, escalado y gestión de aplicaciones en contenedores.", "Kubernetes"),
+    "inteligencia artificial": ("Simulación de procesos de inteligencia humana por parte de sistemas computacionales.", "Artificial Intelligence"),
+    "aprendizaje automático": ("Subcampo de la inteligencia artificial que utiliza algoritmos para aprender de datos.", "Machine Learning"),
+    "red neuronal": ("Modelo computacional inspirado en el cerebro humano, utilizado en aprendizaje automático.", "Neural Network"),
+    "big data": ("Conjunto de datos tan grandes y complejos que requieren herramientas especiales para su procesamiento.", "Big Data"),
+    "análisis de datos": ("Proceso de inspeccionar, limpiar y modelar datos para descubrir información útil.", "Data Analysis"),
+    "visualización de datos": ("Representación gráfica de datos para facilitar su comprensión.", "Data Visualization"),
+    "minería de datos": ("Proceso de descubrir patrones y conocimientos a partir de grandes conjuntos de datos.", "Data Mining"),
+    "computación en la nube": ("Modelo de entrega de servicios de computación a través de Internet.", "Cloud Computing"),
+    "servicio web": ("Método de comunicación entre dispositivos a través de la web.", "Web Service"),
+    "REST": ("Estilo arquitectónico para diseñar servicios web que utilizan HTTP.", "REST"),
+    "SOAP": ("Protocolo para intercambiar información estructurada en la implementación de servicios web.", "SOAP"),
+    "microservicio": ("Arquitectura que estructura una aplicación como un conjunto de servicios pequeños e independientes.", "Microservice"),
+    "arquitectura de software": ("Estructura y organización de un sistema de software.", "Software Architecture"),
+    "código abierto": ("Software cuyo código fuente es accesible y puede ser modificado por cualquier persona.", "Open Source"),
+    "licencia": ("Condiciones bajo las cuales se puede usar, modificar y distribuir un software.", "License"),
+    "sistema operativo": ("Software que gestiona el hardware y software de una computadora.", "Operating System"),
+    "interfaz gráfica de usuario": ("Sistema que permite a los usuarios interactuar con dispositivos a través de elementos visuales.", "GUI"),
+    "terminal": ("Interfaz de línea de comandos para interactuar con el sistema operativo.", "Terminal"),
+    "shell": ("Programa que proporciona una interfaz para interactuar con el sistema operativo.", "Shell"),
+    "script": ("Conjunto de instrucciones que se ejecutan en un entorno de programación.", "Script"),
+    "framework": ("Conjunto de herramientas y bibliotecas que facilitan el desarrollo de aplicaciones.", "Framework"),
+    "biblioteca": ("Colección de funciones y procedimientos que pueden ser utilizados por otros programas.", "Library"),
+    "API RESTful": ("API que sigue los principios de REST para la comunicación entre sistemas.", "RESTful API"),
+    "código de estado HTTP": ("Código que indica el resultado de una solicitud HTTP.", "HTTP Status Code"),
+    "caché de navegador": ("Almacenamiento temporal de recursos web en el navegador para mejorar la velocidad de carga.", "Browser Cache"),
+    "optimización": ("Proceso de hacer que un sistema funcione de la manera más eficiente posible.", "Optimization"),
+    "seguridad informática": ("Prácticas y tecnologías para proteger sistemas y datos de ataques y accesos no autorizados.", "Cybersecurity"),
+    "firewall": ("Sistema que controla el tráfico de red y protege contra accesos no autorizados.", "Firewall"),
+    "antivirus": ("Software diseñado para detectar y eliminar virus y malware.", "Antivirus"),
+    "phishing": ("Técnica de fraude en línea que busca obtener información confidencial de los usuarios.", "Phishing"),
+    "criptografía": ("Práctica de proteger información mediante técnicas de codificación.", "Cryptography"),
+    "token": ("Elemento de seguridad que se utiliza para autenticar a un usuario o dispositivo.", "Token"),
+    "autenticación": ("Proceso de verificar la identidad de un usuario o sistema.", "Authentication"),
+    "autorización": ("Proceso de determinar si un usuario tiene permiso para realizar una acción.", "Authorization"),
+    "sesión": ("Conjunto de interacciones entre un usuario y un sistema durante un período de tiempo.", "Session"),
+    "ciberataque": ("Intento malicioso de acceder, dañar o robar información de un sistema.", "Cyber Attack"),
+    "red privada virtual": ("Tecnología que crea una conexión segura a través de una red pública.", "VPN"),
+    "sistema de gestión de contenido": ("Software que permite crear, gestionar y modificar contenido digital.", "CMS"),
+    "blog": ("Sitio web que se actualiza regularmente con contenido nuevo, generalmente en formato de artículos.", "Blog"),
+    "e-commerce": ("Comercio electrónico, compra y venta de bienes y servicios a través de Internet.", "E-commerce"),
+    "SEO": ("Optimización para motores de búsqueda, práctica de mejorar la visibilidad de un sitio web en los resultados de búsqueda.", "SEO"),
+    "marketing digital": ("Promoción de productos o servicios a través de plataformas digitales.", "Digital Marketing"),
+    "redes sociales": ("Plataformas en línea que permiten la interacción y el intercambio de contenido entre usuarios.", "Social Media"),
+    "contenido viral": ("Contenido que se comparte rápidamente en Internet, alcanzando una gran audiencia.", "Viral Content"),
+    "influencer": (" Persona que tiene la capacidad de influir en las decisiones de compra de otros debido a su autoridad, conocimiento, posición o relación con su audiencia.", "Influencer"),
+    "algoritmo de recomendación": ("Sistema que sugiere productos o contenido a los usuarios basado en sus preferencias y comportamientos anteriores.", "Recommendation Algorithm"),
+    "big data": ("Conjunto de datos tan grandes y complejos que requieren herramientas especiales para su procesamiento.", "Big Data"),
+    "análisis predictivo": ("Uso de datos, algoritmos y técnicas de machine learning para identificar la probabilidad de resultados futuros.", "Predictive Analytics"),
+    "inteligencia de negocios": ("Conjunto de estrategias y tecnologías para analizar datos de negocios y ayudar en la toma de decisiones.", "Business Intelligence"),
+    "data warehouse": ("Sistema utilizado para almacenar y analizar grandes volúmenes de datos de diferentes fuentes.", "Data Warehouse"),
+    "data lake": ("Almacenamiento de datos en su formato original, permitiendo el análisis posterior.", "Data Lake"),
+    "ETL": ("Proceso de Extracción, Transformación y Carga de datos en un sistema de almacenamiento.", "ETL"),
+    "machine learning": ("Subcampo de la inteligencia artificial que utiliza algoritmos para aprender de datos.", "Machine Learning"),
+    "deep learning": ("Subcampo de machine learning que utiliza redes neuronales profundas para el análisis de datos.", "Deep Learning"),
+    "redes neuronales": ("Modelo computacional inspirado en el cerebro humano, utilizado en aprendizaje automático.", "Neural Networks"),
+    "procesamiento del lenguaje natural": ("Área de la inteligencia artificial que se ocupa de la interacción entre computadoras y humanos a través del lenguaje natural.", "Natural Language Processing"),
+    "chatbot": ("Programa que simula una conversación con usuarios a través de texto o voz.", "Chatbot"),
+    "realidad aumentada": ("Tecnología que superpone información digital sobre el mundo real.", "Augmented Reality"),
+    "realidad virtual": ("Simulación de un entorno tridimensional que puede ser explorado e interactuado por un usuario.", "Virtual Reality"),
+    "internet de las cosas": ("Red de dispositivos físicos conectados a Internet que pueden recopilar y compartir datos.", "Internet of Things"),
+    "blockchain": ("Tecnología de registro distribuido que asegura la integridad y transparencia de las transacciones.", "Blockchain"),
+    "criptomoneda": ("Moneda digital que utiliza criptografía para asegurar transacciones y controlar la creación de nuevas unidades.", "Cryptocurrency"),
+    "smart contract": ("Contrato autoejecutable con los términos del acuerdo directamente escritos en código.", "Smart Contract"),
+    "fintech": ("Tecnología que busca mejorar y automatizar la entrega y uso de servicios financieros.", "Fintech"),
+    "edtech": ("Tecnología educativa que utiliza herramientas digitales para mejorar el aprendizaje y la enseñanza.", "Edtech"),
+    "healthtech": ("Tecnología que busca mejorar la atención médica y la salud a través de soluciones digitales.", "Healthtech"),
+    "agrotech": ("Tecnología que busca mejorar la agricultura y la producción de alimentos.", "Agrotech"),
+    "proptech": ("Tecnología que busca mejorar la compra, venta y gestión de propiedades inmobiliarias.", "Proptech"),
+    "insurtech": ("Tecnología que busca mejorar y modernizar la industria de seguros.", "Insurtech"),
+    "mobility": ("Tecnología que busca mejorar el transporte y la movilidad urbana.", "Mobility"),
+    "smart city": ("Ciudad que utiliza tecnología para mejorar la calidad de vida de sus habitantes y la eficiencia de sus servicios.", "Smart City"),
+    "sostenibilidad": ("Práctica de utilizar recursos de manera que se satisfagan las necesidades actuales sin comprometer la capacidad de las futuras generaciones.", "Sustainability"),
+    "energía renovable": ("Energía que se obtiene de fuentes naturales que se reponen a sí mismas.", "Renewable Energy"),
+    "cambio climático": ("Alteraciones a largo plazo en las temperaturas y patrones climáticos de la Tierra.", "Climate Change"),
+    "economía circular": ("Modelo económico que busca minimizar el desperdicio y hacer un uso más eficiente de los recursos.", "Circular Economy"),
+    "responsabilidad social corporativa": ("Práctica de las empresas de tener en cuenta el impacto social y ambiental de sus actividades.", "Corporate Social Responsibility"),
+    "ética en la tecnología": ("Estudio de los principios morales que guían el desarrollo y uso de la tecnología.", "Ethics in Technology"),
+    "privacidad de datos": ("Derecho de los individuos a controlar cómo se recopilan y utilizan sus datos personales.", "Data Privacy"),
+    "protección de datos": ("Conjunto de leyes y regulaciones que protegen la información personal de los individuos.", "Data Protection"),
+    "GD PR": ("Reglamento General de Protección de Datos, legislación de la UE que protege la privacidad de los datos de los ciudadanos.", "GDPR"),
+    "ciberseguridad": ("Prácticas y tecnologías para proteger sistemas y datos de ataques y accesos no autorizados.", "Cybersecurity"),
+    "análisis forense digital": ("Proceso de recuperación y análisis de datos de dispositivos digitales para investigaciones legales.", "Digital Forensics"),
+    "redes neuronales convolucionales": ("Tipo de red neuronal utilizada principalmente en el procesamiento de imágenes.", "Convolutional Neural Networks"),
+    "redes neuronales recurrentes": ("Tipo de red neuronal que se utiliza para procesar secuencias de datos.", "Recurrent Neural Networks"),
+    "algoritmo genético": ("Método de optimización que simula el proceso de selección natural.", "Genetic Algorithm"),
+    "optimización de hiperparámetros": ("Proceso de ajustar los parámetros de un modelo para mejorar su rendimiento.", "Hyperparameter Optimization"),
+    "transfer learning": ("Técnica de machine learning donde un modelo entrenado en una tarea se reutiliza en otra tarea relacionada.", "Transfer Learning"),
+    "análisis de sentimientos": ("Uso de técnicas de procesamiento de lenguaje natural para determinar la actitud de un hablante o escritor.", "Sentiment Analysis"),
+    "reconocimiento de voz": ("Tecnología que permite a las computadoras interpretar y procesar el habla humana.", "Speech Recognition"),
+    "visión por computadora": ("Campo de la inteligencia artificial que permite a las computadoras interpretar y entender imágenes y videos.", "Computer Vision"),
+    "realidad mixta": ("Combinación de elementos de realidad aumentada y realidad virtual.", "Mixed Reality"),
+    "tecnología de reconocimiento facial": ("Sistema que identifica o verifica la identidad de una persona a partir de su rostro.", "Facial Recognition Technology"),
+    "drones": ("Vehículos aéreos no tripulados que pueden ser controlados de forma remota o volar de manera autónoma.", "Drones"),
+    "robótica": ("Campo de la ingeniería que se ocupa del diseño, construcción y operación de robots.", "Robotics"),
+    "automación": ("Uso de tecnología para realizar tareas con mínima intervención humana.", "Automation"),
+    "internet de las cosas industrial": ("Aplicación del IoT en entornos industriales para mejorar la eficiencia y la productividad.", "Industrial IoT"),
+    "ciudades inteligentes": ("Áreas urbanas que utilizan tecnología para mejorar la calidad de vida y la eficiencia de los servicios.", "Smart Cities"),
+    "tecnología de cadena de bloques": ("Sistema de registro digital que asegura la integridad y transparencia de las transacciones.", "Blockchain Technology"),
+    "sistemas de gestión de relaciones con clientes": ("Software que ayuda a las empresas a gestionar interacciones con clientes y datos relacionados.", "CRM Systems"),
+    "sistemas de gestión de recursos empresariales": ("Software que integra todas las facetas de una operación empresarial, incluyendo planificación, fabricación, ventas y marketing.", "ERP Systems"),
+    "inteligencia artificial explicativa": ("Área de la inteligencia artificial que busca hacer que los modelos sean más comprensibles para los humanos.", "Explainable AI"),
+    "tecnología de asistencia": ("Tecnología diseñada para ayudar a las personas con discapacidades a realizar tareas diarias.", "Assistive Technology"),
+    "tecnología de seguimiento ocular": ("Sistema que utiliza cámaras para rastrear el movimiento de los ojos y permitir la interacción con dispositivos.", "Eye Tracking Technology"),
+    "tecnología de impresión 3D": ("Proceso de crear objetos tridimensionales a partir de un modelo digital.", "3D Printing Technology"),
+    "tecnología de realidad virtual": ("Simulación de un entorno tridimensional que puede ser explorado e interactuado por un usuario.", "Virtual Reality Technology"),
+    "tecnología de realidad aumentada": ("Superposición de información digital sobre el mundo real.", "Augmented Reality Technology"),
+    "tecnología de gamificación": ("Uso de elementos de diseño de juegos en contextos no lúdicos para mejorar la participación y el aprendizaje.", "Gamification Technology"),
+    "tecnología de aprendizaje adaptativo": ("Método de enseñanza que personaliza el contenido y el ritmo de aprendizaje según las necesidades del estudiante.", "Adaptive Learning Technology"),
+    "tecnología de análisis de datos": ("Herramientas y técnicas utilizadas para analizar y extraer información de grandes conjuntos de datos.", "Data Analytics Technology"),
+    "tecnología de automatización de procesos robóticos": ("Uso de software para automatizar tareas repetitivas y basadas en reglas.", "Robotic Process Automation"),
+    "tecnología de gestión de proyectos": ("Herramientas y técnicas utilizadas para planificar, ejecutar y supervisar proyectos.", "Project Management Technology"),
+    "tecnología de colaboración": ("Herramientas que facilitan la comunicación y el trabajo en equipo entre individuos y grupos.", "Collaboration Technology"),
+    "tecnología de análisis de redes sociales": ("Herramientas que analizan datos de redes sociales para obtener información sobre tendencias y comportamientos.", "Social Media Analytics Technology"),
+    "tecnología de marketing automatizado": ("Uso de software para automatizar tareas de marketing y mejorar la eficiencia.", "Marketing Automation Technology"),
+    "tecnología de gestión de contenido": ("Herramientas que permiten crear, gestionar y modificar contenido digital.", "Content Management Technology"),
+    "tecnología de análisis de mercado": ("Herramientas y técnicas utilizadas para estudiar y analizar el mercado y la competencia.", "Market Analysis Technology"),
+    "tecnología de gestión de la cadena de suministro": ("Software que ayuda a gestionar el flujo de bienes y servicios desde el proveedor hasta el cliente.", "Supply Chain Management Technology"),
+    "tecnología de gestión de inventarios": ("Herramientas que permiten controlar y gestionar el inventario de productos.", "Inventory Management Technology"),
+    "tecnología de gestión de recursos humanos": ("Software que ayuda a gestionar procesos relacionados con el personal y los empleados.", "Human Resource Management Technology"),
+    "tecnología de análisis de rendimiento": ("Herramientas que evalúan el rendimiento de empleados, productos o servicios.", "Performance Analysis Technology"),
+    "tecnología de gestión de riesgos": ("Herramientas y técnicas utilizadas para identificar, evaluar y mitigar riesgos en proyectos y negocios.", "Risk Management Technology"),
+    "tecnología de gestión de calidad": ("Herramientas que aseguran que los productos y servicios cumplan con los estándares de calidad.", "Quality Management Technology"),
+    "tecnología de gestión de relaciones con proveedores": ("Software que ayuda a gestionar las relaciones y comunicaciones con proveedores.", "Supplier Relationship Management Technology"),
+    "tecnología de gestión de activos": ("Herramientas que permiten gestionar y optimizar el uso de activos de una organización.", "Asset Management Technology"),
+    "tecnología de gestión de datos": ("Herramientas y técnicas utilizadas para almacenar, organizar y analizar datos.", "Data Management Technology"),
+    "tecnología de gestión de la experiencia del cliente": ("Herramientas que ayudan a mejorar la experiencia del cliente a través de la personalización y el análisis.", "Customer Experience Management Technology"),
+    "tecnología de gestión de la innovación": ("Herramientas que facilitan la creación y desarrollo de nuevas ideas y productos.", "Innovation Management Technology"),
+    "tecnología de gestión de la sostenibilidad": ("Herramientas que ayudan a las organizaciones a implementar prácticas sostenibles.", "Sustainability Management Technology"),
+    "tecnología de gestión de la diversidad": ("Herramientas que promueven la diversidad e inclusión en el lugar de trabajo.", "Diversity Management Technology"),
+    "tecnología de gestión de la comunicación": ("Herramientas que facilitan la comunicación interna y externa de una organización.", "Communication Management Technology"),
+    "tecnología de gestión de la reputación": ("Herramientas que ayudan a gestionar y mejorar la reputación de una marca o empresa.", "Reputation Management Technology"),
+    "tecnología de gestión de la marca": ("Herramientas que ayudan a construir y gestionar la identidad de una marca.", "Brand Management Technology"),
+    "tecnología de gestión de la experiencia del empleado": ("Herramientas que mejoran la experiencia de los empleados en el lugar de trabajo.", "Employee Experience Management Technology"),
+    "tecnología de gestión de la formación": ("Herramientas que facilitan la capacitación y el desarrollo de habilidades de los empleados.", "Training Management Technology"),
+    "tecnología de gestión de la salud y seguridad": ("Herramientas que ayudan a gestionar la salud y seguridad en el lugar de trabajo.", "Health and Safety Management Technology"),
+    "tecnología de gestión de la cadena de valor": ("Herramientas que optimizan cada etapa de la cadena de valor de un producto o servicio.", "Value Chain Management Technology"),
+    "tecnología de gestión de la logística": ("Herramientas que ayudan a gestionar el transporte y almacenamiento de productos.", "Logistics Management Technology"),
+    "tecnología de gestión de la producción": ("Herramientas que optimizan los procesos de producción en una organización.", "Production Management Technology"),
+    "tecnología de gestión de la distribución": ("Herramientas que ayudan a gestionar la distribución de productos a los clientes.", "Distribution Management Technology"),
+    "tecnología de gestión de la cadena de suministro sostenible": ("Herramientas que promueven la sostenibilidad en la gestión de la cadena de suministro.", "Sustainable Supply Chain Management Technology"),
+    "tecnología de gestión de la experiencia del cliente digital": ("Herramientas que mejoran la experiencia del cliente en entornos digitales.", "Digital Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del usuario": ("Herramientas que optimizan la interacción del usuario con productos y servicios.", "User  Experience Management Technology"),
+    "tecnología de gestión de la inteligencia artificial": ("Herramientas que facilitan la implementación y gestión de soluciones de inteligencia artificial.", "AI Management Technology"),
+    "tecnología de gestión de la automatización": ("Herramientas que ayudan a implementar y gestionar procesos automatizados.", "Automation Management Technology"),
+    "tecnología de gestión de la transformación digital": ("Herramientas que apoyan la transición de las organizaciones hacia la digitalización.", "Digital Transformation Management Technology"),
+    "tecnología de gestión de la innovación abierta": ("Herramientas que fomentan la colaboración externa para la innovación.", "Open Innovation Management Technology"),
+    "tecnología de gestión de la colaboración interdepartamental": ("Herramientas que facilitan la colaboración entre diferentes departamentos de una organización.", "Interdepartmental Collaboration Management Technology"),
+    "tecnología de gestión de la experiencia del cliente omnicanal": ("Herramientas que aseguran una experiencia coherente del cliente a través de múltiples canales.", "Omnichannel Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado omnicanal": ("Herramientas que aseguran una experiencia coherente del empleado a través de múltiples canales.", "Omnichannel Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en datos": ("Herramientas que utilizan datos para personalizar la experiencia del cliente.", "Data-Driven Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en datos": ("Herramientas que utilizan datos para personalizar la experiencia del empleado.", "Data-Driven Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente en tiempo real": ("Herramientas que permiten interactuar con los clientes en tiempo real.", "Real-Time Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado en tiempo real": ("Herramientas que permiten interactuar con los empleados en tiempo real.", "Real-Time Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente predictiva": ("Herramientas que anticipan las necesidades del cliente utilizando análisis de datos.", "Predictive Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado predictiva": ("Herramientas que anticipan las necesidades del empleado utilizando análisis de datos.", "Predictive Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente proactiva": ("Herramientas que buscan mejorar la experiencia del cliente antes de que surjan problemas.", "Proactive Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado proactiva": ("Herramientas que buscan mejorar la experiencia del empleado antes de que surjan problemas.", "Proactive Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente centrada en el usuario": ("Herramientas que priorizan las necesidades y deseos del cliente en la experiencia.", "User -Centric Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado centrada en el usuario": ("Herramientas que priorizan las necesidades y deseos del empleado en la experiencia.", "User -Centric Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en la inteligencia artificial": ("Herramientas que utilizan IA para personalizar la experiencia del cliente.", "AI-Driven Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en la inteligencia artificial": ("Herramientas que utilizan IA para personalizar la experiencia del empleado.", "AI-Driven Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en la automatización": ("Herramientas que utilizan automatización para mejorar la experiencia del cliente.", "Automation-Driven Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en la automatización": ("Herramientas que utilizan automatización para mejorar la experiencia del empleado.", "Automation-Driven Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en la nube": ("Herramientas que utilizan la nube para mejorar la experiencia del cliente.", "Cloud-Driven Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en la nube": ("Herramientas que utilizan la nube para mejorar la experiencia del empleado.", " Cloud-Driven Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en el análisis de datos": ("Herramientas que utilizan análisis de datos para personalizar la experiencia del cliente.", "Data-Driven Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en el análisis de datos": ("Herramientas que utilizan análisis de datos para personalizar la experiencia del empleado.", "Data-Driven Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en la retroalimentación": ("Herramientas que utilizan la retroalimentación del cliente para mejorar la experiencia.", "Feedback-Driven Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en la retroalimentación": ("Herramientas que utilizan la retroalimentación del empleado para mejorar la experiencia.", "Feedback-Driven Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en la personalización": ("Herramientas que personalizan la experiencia del cliente según sus preferencias.", "Personalization-Driven Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en la personalización": ("Herramientas que personalizan la experiencia del empleado según sus preferencias.", "Personalization-Driven Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en la inteligencia emocional": ("Herramientas que utilizan la inteligencia emocional para mejorar la experiencia del cliente.", "Emotionally Intelligent Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en la inteligencia emocional": ("Herramientas que utilizan la inteligencia emocional para mejorar la experiencia del empleado.", "Emotionally Intelligent Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en la gamificación": ("Herramientas que utilizan elementos de juego para mejorar la experiencia del cliente.", "Gamified Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en la gamificación": ("Herramientas que utilizan elementos de juego para mejorar la experiencia del empleado.", "Gamified Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en la realidad aumentada": ("Herramientas que utilizan realidad aumentada para mejorar la experiencia del cliente.", "Augmented Reality Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en la realidad aumentada": ("Herramientas que utilizan realidad aumentada para mejorar la experiencia del empleado.", "Augmented Reality Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en la realidad virtual": ("Herramientas que utilizan realidad virtual para mejorar la experiencia del cliente.", "Virtual Reality Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en la realidad virtual": ("Herramientas que utilizan realidad virtual para mejorar la experiencia del empleado.", "Virtual Reality Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en la inteligencia artificial": ("Herramientas que utilizan inteligencia artificial para mejorar la experiencia del cliente.", "AI-Driven Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en la inteligencia artificial": ("Herramientas que utilizan inteligencia artificial para mejorar la experiencia del empleado.", "AI-Driven Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en la automatización": ("Herramientas que utilizan automatización para mejorar la experiencia del cliente.", "Automation-Driven Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en la automatización": ("Herramientas que utilizan automatización para mejorar la experiencia del empleado.", "Automation-Driven Employee Experience Management Technology"),
+    "tecnología de gestión de la experiencia del cliente basada en la nube": ("Herramientas que utilizan la nube para mejorar la experiencia del cliente.", "Cloud-Driven Customer Experience Management Technology"),
+    "tecnología de gestión de la experiencia del empleado basada en la nube": ("Herramientas que utilizan la nube para mejorar la experiencia del empleado.", "Cloud-Driven Employee Experience Management Technology"),
+}
+
+miembros_equipo = [
+    {
+        "Nombre": "Gabriel Pedreros",
+        "Edad": 17,
+        "Rol": "Líder técnico y creador de código",
+        "Alias": ["El arquitecto del código", "El visionario técnico"]
+    },
+    {
+        "Nombre": "Jesús Vidal",
+        "Edad": 16,
+        "Rol": "Integrante de desarrollo",
+        "Alias": ["El ejecutor del código", "El constructor ágil"]
+    },
+    {
+        "Nombre": "Maximiliano Veliz",
+        "Edad": 17,
+        "Rol": "Coordinador de pruebas y desarrollador",
+        "Alias": ["El evaluador", "El crítico del código"]
+    },
+    {
+        "Nombre": "Fernando Ibañez",
+        "Edad": 16,
+        "Rol": "Experto en GitHub",
+        "Alias": ["El maestro de repositorios", "El guardián del repositorio"]
+    },
+    {
+        "Nombre": "Matías Lara",
+        "Edad": 17,
+        "Rol": "Especialista en diseño de interfaces",
+        "Alias": ["El artista del código", "El escultor digital"]
+    },
+    {
+        "Nombre": "Valentina San Martín",
+        "Edad": 16,
+        "Rol": "Gestora de documentación y comunicación",
+        "Alias": ["La estratega digital", "La narradora de datos"]
+    }
+]
+
 # Función para hablar un texto
 def hablar(texto):
     engine.say(texto)
@@ -12,14 +324,14 @@ def hablar(texto):
 # Función para reconocer voz
 def reconocer_voz():
     r = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Escuchando...")
-        hablar("Te escucho")
-        audio = r.listen(source)
     try:
-        texto = r.recognize_google(audio, language='es-ES')
-        print(f"Has dicho: {texto}")
-        return texto.lower()
+        with sr.Microphone() as source:
+            print("Escuchando...")
+            hablar("Te escucho")
+            audio = r.listen(source)
+            texto = r.recognize_google(audio, language='es-ES' if idioma_actual == "español" else 'en-US')
+            print(f"Has dicho: {texto}")
+            return texto.lower()
     except sr.UnknownValueError:
         print("No he entendido lo que dijiste.")
         hablar("No he entendido, por favor repite")
@@ -29,342 +341,51 @@ def reconocer_voz():
         hablar("Ha ocurrido un error en el reconocimiento de voz")
         return None
 
-diccionario = {
-    "array": ("Estructura de datos que almacena múltiples valores.", "Array"),
-    "asignar": ("Establecer un valor a una variable.", "To assign"),
-    "algoritmo": ("Conjunto de instrucciones para resolver un problema.", "Algorithm"),
-    "API": ("Interfaz de programación de aplicaciones que permite la interacción entre software.", "API"),
-    "asíncrono": ("Ejecutar procesos de manera no secuencial.", "Asynchronous"),
-    "atributo": ("Propiedad o característica de un objeto.", "Attribute"),
-    "autenticación": ("Proceso de verificar la identidad de un usuario.", "Authentication"),
-    "automatización": ("Uso de tecnología para realizar tareas sin intervención humana.", "Automation"),
-    "agente": ("Programa que actúa en nombre de un usuario o sistema.", "Agent"),
-    "análisis": ("Examen detallado de un sistema o programa.", "Analysis"),
-    "aplicación": ("Software diseñado para realizar una función específica.", "Application"),
-    "asistente": ("Software que ayuda al usuario en tareas específicas.", "Assistant"),
-    "acceso": ("Posibilidad de utilizar recursos o datos.", "Access"),
-    "anidación": ("Uso de estructuras dentro de otras, como bucles o condicionales.", "Nesting"),
-    "archivo": ("Conjunto de datos almacenados en un dispositivo.", "File"),
-    "adaptador": ("Componente que permite la compatibilidad entre diferentes sistemas.", "Adapter"),
-    "algoritmo genético": ("Método de optimización inspirado en la evolución natural.", "Genetic algorithm"),
-    "análisis de datos": ("Proceso de inspeccionar y modelar datos para extraer información útil.", "Data analysis"),
-    "agregación": ("Combinación de múltiples elementos en uno solo.", "Aggregation"),
-    "aplicación web": ("Software accesible a través de un navegador web.", "Web application"),
-    "asociación": ("Relación entre diferentes elementos o entidades.", "Association"),
-    "acuerdo de nivel de servicio": ("Contrato que define el nivel esperado de servicio.", "Service level agreement"),
-    "algoritmo de búsqueda": ("Método para encontrar un elemento en una estructura de datos.", "Search algorithm"),
-    "análisis estático": ("Evaluación de código sin ejecutarlo para identificar errores.", "Static analysis"),
-    "análisis dinámico": ("Evaluación de código durante su ejecución para identificar errores.", "Dynamic analysis"),
-    "agile": ("Metodología de desarrollo de software que promueve la flexibilidad y la colaboración.", "Agile"),
-    "agregador": ("Aplicación que recopila información de diversas fuentes.", "Aggregator"),
-    "asignación dinámica": ("Asignación de memoria durante la ejecución del programa.", "Dynamic allocation"),
-    "análisis de requisitos": ("Proceso de determinar las necesidades del usuario para un sistema.", "Requirements analysis"),
-    "adaptabilidad": ("Capacidad de un sistema para ajustarse a cambios.", "Adaptability"),
-    "algoritmo de ordenamiento": ("Método para organizar elementos en un orden específico.", "Sorting algorithm"),
-    "asignación estática": ("Asignación de memoria en tiempo de compilación.", "Static allocation"),
-    "asociación de clases": ("Relación entre dos o más clases en programación orientada a objetos.", "Class association"),
-    "aplicación móvil": ("Software diseñado para ser utilizado en dispositivos móviles.", "Mobile application"),
-    "análisis de impacto": ("Evaluación de las consecuencias de un cambio en un sistema.", "Impact analysis"),
-    
-    # B
-    "bucles": ("Estructura que permite repetir un bloque de código.", "Loops"),
-    "bucles anidados": ("Bucle dentro de otro bucle.", "Nested loops"),
-    "booleano": ("Tipo de dato que puede ser verdadero o falso.", "Boolean"),
-    "backend": ("Parte de una aplicación que maneja la lógica del servidor y la base de datos.", "Backend"),
-    "base de datos": ("Conjunto organizado de datos almacenados y accesibles.", "Database"),
-    "bifurcación": ("División de un proceso en dos o más caminos.", "Branching"),
-    "buffer": ("Área de memoria temporal utilizada para almacenar datos.", "Buffer"),
-    "bug": ("Error o fallo en un programa.", "Bug"),
-    "búsqueda binaria": ("Método eficiente para encontrar un elemento en una lista ordenada.", "Binary search"),
-    "bucle for": ("Estructura de control que repite un bloque de código un número específico de veces.", "For loop"),
-    "bucle while": ("Estructura de control que repite un bloque de código mientras una condición sea verdadera.", "While loop"),
-    "break": ("Instrucción que termina un bucle antes de que se complete su ejecución.", "Break"),
-    "branch": ("Una versión de un proyecto en un sistema de control de versiones.", "Branch"),
-    "build": ("Proceso de compilar y enlazar el código fuente para crear un programa ejecutable.", "Build"),
-    "byte": ("Unidad básica de almacenamiento de datos, generalmente compuesta por 8 bits.", "Byte"),
-    
-    # C
-    "clase": ("Plantilla para crear objetos en programación orientada a objetos.", "Class"),
-    "callback": ("Función que se pasa como argumento a otra función.", "Callback"),
-    "código": ("Conjunto de instrucciones escritas en un lenguaje de programación.", "Code"),
-    "código abierto": ("Software cuyo código fuente es accesible y puede ser modificado.", "Open source"),
-    "condicional": ("Estructura que permite tomar decisiones en el flujo del programa.", "Conditional"),
-    "concurrencia": ("Capacidad de ejecutar múltiples procesos al mismo tiempo.", "Concurrency"),
-    "contenedor": ("Unidad estándar de software que empaqueta el código y todas sus dependencias.", "Container"),
-    "cliente": ("Computadora que solicita servicios de un servidor.", "Client"),
-    "ciberseguridad": ("Prácticas y tecnologías para proteger sistemas y datos de ataques maliciosos.", "Cybersecurity"),
-    "caché": ("Almacenamiento temporal de datos para acelerar el acceso a ellos.", "Cache"),
-    "compilador": ("Programa que traduce código fuente a código máquina.", "Compiler"),
-    "complejidad algorítmica": ("Medida de la eficiencia de un algoritmo en función de su tiempo y espacio de ejecución.", "Algorithmic complexity"),
-    "conexión": ("Establecimiento de un enlace entre dos sistemas o dispositivos.", "Connection"),
-    "constructor": ("Método especial en una clase que se utiliza para crear objetos.", "Constructor"),
-    "código fuente": ("Texto escrito en un lenguaje de programación que define un programa.", "Source code"),
-    "ciclo de vida del software": ("Fases que atraviesa un software desde su concepción hasta su retiro.", "Software development lifecycle"),
-    "copia de seguridad": ("Duplicado de datos para protegerlos contra pérdida o daño.", "Backup"),
-    "código de estado": ("Número que indica el resultado de una solicitud HTTP.", "Status code"),
-    "circuito": ("Conjunto de componentes electrónicos interconectados.", "Circuit"),
-    "código limpio": ("Código que es fácil de leer y mantener.", "Clean code"),
-    "ciclo de desarrollo": ("Fases repetitivas en el desarrollo de software, como planificación, diseño, implementación y pruebas.", "Development cycle"),
-    
-    # D
-    "depurar": ("Eliminar errores en el código.", "To debug"),
-    "depuración": ("Proceso de identificar y corregir errores en un programa.", "Debugging"),
-    "docker": ("Plataforma para crear, desplegar y ejecutar aplicaciones en contenedores.", "Docker"),
-    "data lake": ("Almacenamiento centralizado de datos en su formato original.", "Data lake"),
-    "data warehouse": ("Sistema utilizado para el análisis y reporte de datos.", "Data warehouse"),
-    "deserialización": ("Proceso de convertir un formato almacenado o transmitido de vuelta a un objeto.", "Deserialization"),
-    "documentación": ("Descripción detallada de cómo utilizar un software.", "Documentation"),
-    "debugger": ("Herramienta que permite depurar programas.", "Debugger"),
-    "diseño de software": ("Proceso de definir la arquitectura y componentes de un sistema.", "Software design"),
-    "distrib uido": ("Sistema que opera en múltiples computadoras que se comunican entre sí.", "Distributed"),
-    "dominio": ("Área de conocimiento o aplicación específica en un sistema.", "Domain"),
-    "despliegue": ("Proceso de poner un software en producción.", "Deployment"),
-    "dependencia": ("Relación entre dos o más módulos, donde uno depende del otro.", "Dependency"),
-    "directorio": ("Estructura que organiza archivos en un sistema de archivos.", "Directory"),
-    "diseño orientado a objetos": ("Enfoque de diseño que utiliza objetos y clases para modelar sistemas.", "Object-oriented design"),
-    "diferencial": ("Proceso de comparar dos versiones de un archivo para identificar cambios.", "Diff"),
-    
-    # E
-    "encapsulamiento": ("Técnica que restringe el acceso a ciertos componentes de un objeto.", "Encapsulation"),
-    "entidad": ("Elemento que tiene una existencia independiente en un sistema.", "Entity"),
-    "estructura de datos": ("Método para organizar y almacenar datos de manera eficiente.", "Data structure"),
-    "excepción": ("Evento que altera el flujo normal de un programa.", "Exception"),
-    "ejecución": ("Proceso de llevar a cabo las instrucciones de un programa.", "Execution"),
-    "entorno de desarrollo": ("Conjunto de herramientas y configuraciones para desarrollar software.", "Development environment"),
-    
-    # F
-    "función": ("Bloque de código que realiza una tarea específica y puede ser reutilizado.", "Function"),
-    "framework": ("Conjunto de herramientas y bibliotecas que facilitan el desarrollo de software.", "Framework"),
-    "flujo de control": ("Orden en el que se ejecutan las instrucciones de un programa.", "Control flow"),
-    "formato": ("Estructura o disposición de datos.", "Format"),
-    "front-end": ("Parte de una aplicación que interactúa directamente con el usuario.", "Front-end"),
-    
-    # G
-    "git": ("Sistema de control de versiones distribuido.", "Git"),
-    "grupo de trabajo": ("Conjunto de personas que colaboran en un proyecto.", "Working group"),
-    "gestión de proyectos": ("Proceso de planificar, ejecutar y supervisar proyectos.", "Project management"),
-    "gráfico": ("Representación visual de datos.", "Graph"),
-    
-    # H
-    "hash": ("Función que convierte datos de entrada en un valor de longitud fija.", "Hash"),
-    "herencia": ("Mecanismo en programación orientada a objetos que permite a una clase adquirir propiedades de otra.", "Inheritance"),
-    "hardware": ("Componentes físicos de una computadora.", "Hardware"),
-    
-    # I
-    "interfaz": ("Punto de interacción entre diferentes sistemas o componentes.", "Interface"),
-    "instancia": ("Objeto creado a partir de una clase.", "Instance"),
-    "implementación": ("Proceso de llevar a cabo un diseño o plan.", "Implementation"),
-    
-    # J
-    "JSON": ("Formato de intercambio de datos ligero y fácil de leer.", "JSON"),
-    "Java": ("Lenguaje de programación orientado a objetos ampliamente utilizado.", "Java"),
-    
-    # K
-    "Kubernetes": ("Sistema de orquestación para automatizar la implementación, escalado y gestión de aplicaciones en contenedores.", "Kubernetes"),
-    
-    # L
-    "lenguaje de programación": ("Conjunto de reglas y sintaxis para escribir programas.", "Programming language"),
-    "librería": ("Colección de funciones y procedimientos que pueden ser utilizados en un programa.", "Library"),
-    
-    # M
-    "módulo": ("Unidad de código que encapsula funcionalidad específica.", "Module"),
-    "metodología": ("Conjunto de métodos y prácticas para llevar a cabo un proyecto.", "Methodology"),
-    
-    # N
-    "nube": ("Modelo de computación que permite el acceso a recursos y servicios a través de Internet.", "Cloud"),
-    "navegador": ("Aplicación que permite acceder a información en la web.", "Browser"),
-    
-    # O
-    "objeto": ("Instancia de una clase que contiene datos y métodos.", "Object"),
-    "operador": ("Símbolo que representa una operación en programación.", "Operator"),
-    
-    # P
-    "paradigma": ("Enfoque o estilo de programación.", "Paradigm"),
-    "prototipo": ("Modelo inicial de un producto o sistema.", "Prototype"),
-    
-    # Q
-    "query": ("Consulta a una base de datos para obtener información.", "Query"),
-    
-    # R
-    "repositorio": ("Lugar donde se almacena y gestiona el código fuente.", "Repository"),
-    "refactorización": ("Proceso de mejorar el código sin cambiar su funcionalidad.", "Refactoring"),
-    
-    # S
-    "sistema operativo": ("Software que gestiona el hardware y software de una computadora.", "Operating system"),
-    "seguridad informática": ("Prácticas para proteger sistemas y datos de accesos no autorizados.", "Information security"),
-    
-    # T
-    "tipo de dato": ("Clasificación de datos que determina qué operaciones se pueden realizar sobre ellos.", "Data type"),
-    "test": ("Prueba para verificar que un programa funciona como se espera.", "Test"),
-    
-    # U
-    "usuario": ("Persona que utiliza un sistema o aplicación.", "User "),
-    "unidad de prueba": ("Conjunto de pruebas que se realizan sobre una unidad de código.", "Test case"),
-    
-    # V
-    "variable": ("Espacio de almacenamiento que tiene un nombre y puede contener un valor.", "Variable"),
-    "versionado": ("Proceso de gestionar y controlar las diferentes versiones de un software.", "Versioning"),
-    
-    # W
-    "web": ("Conjunto de páginas y recursos accesibles a través de Internet.", "Web"),
-    "widget": ("Componente de interfaz gráfica que permite la interacción del usuario.", "Widget"),
-    
-    # X
-    "XML": ("Lenguaje de marcado que define un conjunto de reglas para codificar documentos en un formato legible por humanos y máquinas.", "XML"),
-    
-    # Y
-    "YAML": ("Formato de serialización de datos legible por humanos, utilizado comúnmente para archivos de configuración.", "YAML"),
-    
-    # Z
-    "zócalo": ("Punto de conexión en un sistema que permite la comunicación entre diferentes componentes.", "Socket"),
-}
-
-integrantes = [
-    {
-        "Nombre": "Gabriel Pedreros",
-        "Edad": 17,
-        "Rol": "Desarrollador En Jefe",
-        "Email": "Gabriel.pedreros.becerra@alumnos.cmch.maristas.cl",
-        "Alias": "El Manco para el Futbol, Cantante estrella, milhouse, king of fights"
-    },
-    {
-        "Nombre": "Maximiliano Veliz",
-        "Edad": 17,
-        "Rol": "Desarrollador",
-        "Email": "maximiliano.veliz.aguilar@alumnos.cmch.maristas.cl",
-        "Alias": "El cafe, esclavo, color humilde, carton mojado, carbon de parrilla, milhouse quemado, sin cuerpo, humor negro, el cuerpo se le quedo en la montaña,."
-    },
-    {
-        "Nombre": "Jesus Vidal",
-        "Edad": 16,
-        "Rol": "Desarrollador",
-        "Email": "jesus.vidal.carrasco@alumnos.cmch.maristas.cl",
-        "Alias": "El mesias, el mascapito, el traga pitos 3000, la mano de dios (para agarrar el pico)"
-    },
-    {
-        "Nombre": "Angel Zuñiga",
-        "Edad": 17,
-        "Rol": "Diseñador En Jefe",
-        "Email": "angel.zuniga.villalobos@alumnos.cmch.maristas.cl",
-        "Alias": "El mensajero del diablo, el compañero de el diablo, cerbero (por perro), Stephen Hawking,Professor X/Charles Xavier, rayo mqueen, el cojo, el manco, el sin espalda"
-    },
-    {
-        "Nombre": "Valentina San Martin",
-        "Edad": 16,
-        "Rol": "Diseñadora",
-        "Email": "valentina.sanmartin.roman@alumnos.cmch.maristas.cl",
-        "Alias": "la otaku, la lesbiana,el gusto de la concha, enferma, rarita"
-    },
-    {
-        "Nombre": "Matias Lara",
-        "Edad": 17,
-        "Rol": "Diseñador",
-        "Email": "matias.lara.valenzuela@alumnos.cmch.maristas.cl",
-        "Alias": "Transformer, hombre con vagina, el ciego, el sordo, el sueño imposible (poner el pico)"
-    },
-    {
-        "Nombre": "Fernando Ibañez",
-        "Edad": 16,
-        "Rol": "Líder de este trabajo",
-        "Email": "fernando.ibañez.moreno@alumnos.cmch.maristas.cl",
-        "Alias": ("El cabeza de bello pubico, el pinguino de linux, don pinpon, barnie, bob patiño, "
-                  "necesitado (de pico), autista conchetumare, poo de kung fu panda, los tres chanchitos en uno, "
-                  "la vaca lola, winnie pooh, el hombre topo grande, pie grande, el mano de pajero, "
-                  "el mas cayos que manos, el compra terreno, "
-                  "el loco de los gatos, don barriga, ñoño, troncha toro, rasputia, el que dejo manco a su madre, devuelvame el dinero que lloro")
-    }
-]
-
-idioma_actual = "español"
-diccionario_por_letras = {}
-
-def actualizar_diccionario_por_letras():
-    global diccionario_por_letras
-    diccionario_por_letras = {}
-    for palabra in diccionario.keys():
-        letra_inicial = palabra[0].lower()
-        if letra_inicial not in diccionario_por_letras:
-            diccionario_por_letras[letra_inicial] = []
-        diccionario_por_letras[letra_inicial].append(palabra)
-
-actualizar_diccionario_por_letras()
-
-def mostrar_la_informacion_de_los_integrantes():
-    if not integrantes:
-        print("No hay integrantes para mostrar.")
-        hablar("No hay integrantes para mostrar.")
-        return
-    for integrante in integrantes:
-        info = f"Nombre: {integrante['Nombre']}, Edad: {integrante['Edad']}, Rol: {integrante['Rol']}, Email: {integrante['Email']}, Alias: {integrante['Alias']}"
-        print(info)
-        hablar(info)
-        print("-" * 50)
-
+# Funciones adicionales
 def ver_lista_completa():
-    print("\nLista de Palabras 📜:" if idioma_actual == "español" else "\nWord List 📜:")
-    hablar("Mostrando lista de palabras")
-    for letra, palabras in sorted(diccionario_por_letras.items()):
-        print(f"\nPalabras que comienzan con '{letra.upper()}':")
-        for palabra in palabras:
-            definicion, traduccion = diccionario[palabra]
-            info = f"{palabra}: {definicion} ({traduccion})"
-            print(info)
-            hablar(info)
+    print("\n--- Lista Completa de Palabras ---")
+    for palabra, (definicion, traduccion) in diccionario_programacion.items():
+        print(f"{palabra}: {definicion} ({traduccion})")
+        hablar(f"{palabra}: {definicion}")
 
 def cambiar_idioma():
     global idioma_actual
-    idioma_actual = "inglés" if idioma_actual == "español" else "español"
-    mensaje = "¡Palabras de poder en inglés activadas!" if idioma_actual == "inglés" else "¡Palabras de poder en español activadas!"
-    print(f"\n{mensaje}")
-    hablar(mensaje)
-
-def buscar_palabra(letra):
-    if not letra:
-        mensaje = "Por favor, ingrese una letra válida." if idioma_actual == "español" else "Please enter a valid letter."
-        print(mensaje)
-        hablar(mensaje)
-        return
-    letra = letra.lower()
-    print(f"\nBuscando palabras que comienzan con '{letra}' 🔍:" if idioma_actual == "español" else f"\nSearching for words starting with '{letra}' 🔍:")
-    hablar(f"Buscando palabras que comienzan con {letra}")
-    if letra in diccionario_por_letras:
-        for palabra in diccionario_por_letras[letra]:
-            definicion, traduccion = diccionario[palabra]
-            info = f"{palabra}: {definicion} ({traduccion})"
-            print(info)
-            hablar(info)
+    if idioma_actual == "español":
+        idioma_actual = "inglés"
+        print("Idioma cambiado a inglés.")
+        hablar("Language changed to English.")
     else:
-        mensaje = "No se encontraron palabras." if idioma_actual == "español" else "No words found."
-        print(mensaje)
-        hablar(mensaje)
+        idioma_actual = "español"
+        print("Idioma cambiado a español.")
+        hablar("Idioma cambiado a español.")
 
 def agregar_palabra():
-    nueva_palabra = input("Ingrese la nueva palabra: ").strip()
-    if not nueva_palabra:
-        print("Por favor, ingrese una palabra válida.")
-        hablar("Por favor, ingrese una palabra válida.")
-        return
-    if nueva_palabra in diccionario:
-        print("La palabra ya existe en el diccionario.")
-        hablar("La palabra ya existe en el diccionario.")
-        return
-    definicion = input("Ingrese la definición: ").strip()
-    traduccion = input("Ingrese la traducción al inglés: ").strip()
-    if not definicion or not traduccion:
-        print("Por favor, ingrese una definición y traducción válidas.")
-        hablar("Por favor, ingrese una definición y traducción válidas.")
-        return
-    diccionario[nueva_palabra] = (definicion, traduccion)
-    actualizar_diccionario_por_letras()
-    print("Palabra agregada exitosamente.")
-    hablar("Palabra agregada exitosamente.")
+    palabra = input("Introduce la nueva palabra: ")
+    definicion = input("Introduce la definición: ")
+    traduccion = input("Introduce la traducción: ")
+    diccionario_programacion[palabra] = (definicion, traduccion)
+    print(f"Palabra '{palabra}' añadida exitosamente.")
+    hablar(f"Palabra '{palabra}' añadida exitosamente.")
+
+def mostrar_la_informacion_de_los_integrantes():
+    print("\n--- Información de los Integrantes ---")
+    for miembro in miembros_equipo:
+        print(f"Nombre: {miembro['Nombre']}, Edad: {miembro['Edad']}, Rol: {miembro['Rol']}, Alias: {', '.join(miembro['Alias'])}")
+        hablar(f"Nombre: {miembro['Nombre']}, Edad: {miembro['Edad']}, Rol: {miembro['Rol']}, Alias: {', '.join(miembro['Alias'])}")
+
+def buscar_palabra(diccionario, letra):
+    print(f"\n--- Palabras que comienzan con '{letra}' ---")
+    for palabra in diccionario.keys():
+        if palabra.startswith(letra):
+            print(palabra)
+            hablar(palabra)
 
 def menu():
-    mensaje_bienvenida = "¡Bienvenido/a al Diccionario Digital Interactivo! Nuestro programa te ofrece las siguientes funciones: Explorar el extenso catálogo de palabras, Opciones multilingües, Búsqueda avanzada por categorías y letras, Contribuir con nuevos términos, Conocer a nuestro equipo. ¿Qué te gustaría explorar primero?"
+    mensaje_bienvenida = "¡Bienvenido/a al Diccionario de Código Viking: Términos y Definiciones para Desarrolladores! Nuestro programa te ofrece las siguientes funciones: Explorar el extenso catálogo de palabras, Opciones multilingües , Búsqueda avanzada por categorías y letras, Contribuir con nuevos términos, Conocer a nuestro equipo. ¿Qué te gustaría explorar primero?"
 
     print(mensaje_bienvenida)
     hablar(mensaje_bienvenida)
-    
+
     while True:
         print("\n--- Menú ---" if idioma_actual == "español" else "\n--- Menu ---")
         opciones = [
@@ -389,7 +410,7 @@ def menu():
                 cambiar_idioma()
             elif "buscar" in opcion:
                 letra = input("Ingrese la letra a buscar: " if idioma_actual == "español" else "Enter the letter to search: ")
-                buscar_palabra(letra)
+                buscar_palabra(diccionario_programacion, letra)
             elif "agregar" in opcion:
                 agregar_palabra()
             elif "información" in opcion:
@@ -409,7 +430,7 @@ def menu():
                 cambiar_idioma()
             elif opcion == "3":
                 letra = input("Ingrese la letra a buscar: " if idioma_actual == "español" else "Enter the letter to search: ")
-                buscar_palabra(letra)
+                buscar_palabra(diccionario_programacion, letra)
             elif opcion == "4":
                 agregar_palabra()
             elif opcion == "5":
