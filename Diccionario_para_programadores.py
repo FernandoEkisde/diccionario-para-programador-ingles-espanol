@@ -7,9 +7,11 @@ engine = pyttsx3.init()
 # Idioma actual
 idioma_actual = "español"
 
+# Título
+print("🪓 El Vocabulario del Berserker ⚔️")
+
 # Diccionario de términos de programación
 diccionario_programacion = {
-    # Términos Básicos
     "abstracción": ("Concepto de simplificar problemas complejos ocultando detalles innecesarios.", "Abstraction"),
     "algoritmo": ("Conjunto de instrucciones o reglas bien definidas para resolver un problema.", "Algorithm"),
     "argumento": ("Valor que se pasa a una función cuando es llamada.", "Argument"),
@@ -48,12 +50,11 @@ diccionario_programacion = {
     "algoritmo de búsqueda": ("Método para encontrar un elemento en una colección de datos.", "Search Algorithm"),
     "algoritmo de ordenamiento": ("Método para reorganizar elementos en un orden específico.", "Sorting Algorithm"),
     "estructura de datos": ("Forma de organizar y almacenar datos para su uso eficiente.", "Data Structure"),
-    "booleano": ("Tipo de dato que puede ser verdadero o falso.", "Boolean"),
     "entrada": ("Datos que se proporcionan a un programa.", "Input"),
     "salida": ("Datos que un programa produce como resultado.", "Output"),
     "prototipo": ("Modelo inicial de un objeto o función.", "Prototype"),
     "interfaz": ("Conjunto de métodos que una clase debe implementar.", "Interface"),
-    "herencia": ("Mecanismo que permite a una clase heredar propiedades de otra clase.", "Inheritance"),
+    "herencia": (" Mecanismo que permite a una clase heredar propiedades de otra clase.", "Inheritance"),
     "instancia": ("Objeto creado a partir de una clase.", "Instance"),
     "método": ("Función que pertenece a una clase.", "Method"),
     "atributo": ("Variable que pertenece a una clase o instancia.", "Attribute"),
@@ -134,7 +135,7 @@ diccionario_programacion = {
     "marketing digital": ("Promoción de productos o servicios a través de plataformas digitales.", "Digital Marketing"),
     "redes sociales": ("Plataformas en línea que permiten la interacción y el intercambio de contenido entre usuarios.", "Social Media"),
     "contenido viral": ("Contenido que se comparte rápidamente en Internet, alcanzando una gran audiencia.", "Viral Content"),
-    "influencer": (" Persona que tiene la capacidad de influir en las decisiones de compra de otros debido a su autoridad, conocimiento, posición o relación con su audiencia.", "Influencer"),
+    "influencer": ("Persona que tiene la capacidad de influir en las decisiones de compra de otros debido a su autoridad, conocimiento, posición o relación con su audiencia.", "Influencer"),
     "algoritmo de recomendación": ("Sistema que sugiere productos o contenido a los usuarios basado en sus preferencias y comportamientos anteriores.", "Recommendation Algorithm"),
     "big data": ("Conjunto de datos tan grandes y complejos que requieren herramientas especiales para su procesamiento.", "Big Data"),
     "análisis predictivo": ("Uso de datos, algoritmos y técnicas de machine learning para identificar la probabilidad de resultados futuros.", "Predictive Analytics"),
@@ -169,7 +170,7 @@ diccionario_programacion = {
     "ética en la tecnología": ("Estudio de los principios morales que guían el desarrollo y uso de la tecnología.", "Ethics in Technology"),
     "privacidad de datos": ("Derecho de los individuos a controlar cómo se recopilan y utilizan sus datos personales.", "Data Privacy"),
     "protección de datos": ("Conjunto de leyes y regulaciones que protegen la información personal de los individuos.", "Data Protection"),
-    "GD PR": ("Reglamento General de Protección de Datos, legislación de la UE que protege la privacidad de los datos de los ciudadanos.", "GDPR"),
+    "GDPR": ("Reglamento General de Protección de Datos, legislación de la UE que protege la privacidad de los datos de los ciudadanos.", "GDPR"),
     "ciberseguridad": ("Prácticas y tecnologías para proteger sistemas y datos de ataques y accesos no autorizados.", "Cybersecurity"),
     "análisis forense digital": ("Proceso de recuperación y análisis de datos de dispositivos digitales para investigaciones legales.", "Digital Forensics"),
     "redes neuronales convolucionales": ("Tipo de red neuronal utilizada principalmente en el procesamiento de imágenes.", "Convolutional Neural Networks"),
@@ -200,7 +201,7 @@ diccionario_programacion = {
     "tecnología de aprendizaje adaptativo": ("Método de enseñanza que personaliza el contenido y el ritmo de aprendizaje según las necesidades del estudiante.", "Adaptive Learning Technology"),
     "tecnología de análisis de datos": ("Herramientas y técnicas utilizadas para analizar y extraer información de grandes conjuntos de datos.", "Data Analytics Technology"),
     "tecnología de automatización de procesos robóticos": ("Uso de software para automatizar tareas repetitivas y basadas en reglas.", "Robotic Process Automation"),
-    "tecnología de gestión de proyectos": ("Herramientas y técnicas utilizadas para planificar, ejecutar y supervisar proyectos.", "Project Management Technology"),
+    "tecnología de gestión de proyectos ": ("Herramientas y técnicas utilizadas para planificar, ejecutar y supervisar proyectos.", "Project Management Technology"),
     "tecnología de colaboración": ("Herramientas que facilitan la comunicación y el trabajo en equipo entre individuos y grupos.", "Collaboration Technology"),
     "tecnología de análisis de redes sociales": ("Herramientas que analizan datos de redes sociales para obtener información sobre tendencias y comportamientos.", "Social Media Analytics Technology"),
     "tecnología de marketing automatizado": ("Uso de software para automatizar tareas de marketing y mejorar la eficiencia.", "Marketing Automation Technology"),
@@ -229,54 +230,7 @@ diccionario_programacion = {
     "tecnología de gestión de la logística": ("Herramientas que ayudan a gestionar el transporte y almacenamiento de productos.", "Logistics Management Technology"),
     "tecnología de gestión de la producción": ("Herramientas que optimizan los procesos de producción en una organización.", "Production Management Technology"),
     "tecnología de gestión de la distribución": ("Herramientas que ayudan a gestionar la distribución de productos a los clientes.", "Distribution Management Technology"),
-    "tecnología de gestión de la cadena de suministro sostenible": ("Herramientas que promueven la sostenibilidad en la gestión de la cadena de suministro.", "Sustainable Supply Chain Management Technology"),
-    "tecnología de gestión de la experiencia del cliente digital": ("Herramientas que mejoran la experiencia del cliente en entornos digitales.", "Digital Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del usuario": ("Herramientas que optimizan la interacción del usuario con productos y servicios.", "User  Experience Management Technology"),
-    "tecnología de gestión de la inteligencia artificial": ("Herramientas que facilitan la implementación y gestión de soluciones de inteligencia artificial.", "AI Management Technology"),
-    "tecnología de gestión de la automatización": ("Herramientas que ayudan a implementar y gestionar procesos automatizados.", "Automation Management Technology"),
-    "tecnología de gestión de la transformación digital": ("Herramientas que apoyan la transición de las organizaciones hacia la digitalización.", "Digital Transformation Management Technology"),
-    "tecnología de gestión de la innovación abierta": ("Herramientas que fomentan la colaboración externa para la innovación.", "Open Innovation Management Technology"),
-    "tecnología de gestión de la colaboración interdepartamental": ("Herramientas que facilitan la colaboración entre diferentes departamentos de una organización.", "Interdepartmental Collaboration Management Technology"),
-    "tecnología de gestión de la experiencia del cliente omnicanal": ("Herramientas que aseguran una experiencia coherente del cliente a través de múltiples canales.", "Omnichannel Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado omnicanal": ("Herramientas que aseguran una experiencia coherente del empleado a través de múltiples canales.", "Omnichannel Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en datos": ("Herramientas que utilizan datos para personalizar la experiencia del cliente.", "Data-Driven Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en datos": ("Herramientas que utilizan datos para personalizar la experiencia del empleado.", "Data-Driven Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente en tiempo real": ("Herramientas que permiten interactuar con los clientes en tiempo real.", "Real-Time Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado en tiempo real": ("Herramientas que permiten interactuar con los empleados en tiempo real.", "Real-Time Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente predictiva": ("Herramientas que anticipan las necesidades del cliente utilizando análisis de datos.", "Predictive Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado predictiva": ("Herramientas que anticipan las necesidades del empleado utilizando análisis de datos.", "Predictive Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente proactiva": ("Herramientas que buscan mejorar la experiencia del cliente antes de que surjan problemas.", "Proactive Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado proactiva": ("Herramientas que buscan mejorar la experiencia del empleado antes de que surjan problemas.", "Proactive Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente centrada en el usuario": ("Herramientas que priorizan las necesidades y deseos del cliente en la experiencia.", "User -Centric Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado centrada en el usuario": ("Herramientas que priorizan las necesidades y deseos del empleado en la experiencia.", "User -Centric Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en la inteligencia artificial": ("Herramientas que utilizan IA para personalizar la experiencia del cliente.", "AI-Driven Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en la inteligencia artificial": ("Herramientas que utilizan IA para personalizar la experiencia del empleado.", "AI-Driven Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en la automatización": ("Herramientas que utilizan automatización para mejorar la experiencia del cliente.", "Automation-Driven Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en la automatización": ("Herramientas que utilizan automatización para mejorar la experiencia del empleado.", "Automation-Driven Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en la nube": ("Herramientas que utilizan la nube para mejorar la experiencia del cliente.", "Cloud-Driven Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en la nube": ("Herramientas que utilizan la nube para mejorar la experiencia del empleado.", " Cloud-Driven Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en el análisis de datos": ("Herramientas que utilizan análisis de datos para personalizar la experiencia del cliente.", "Data-Driven Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en el análisis de datos": ("Herramientas que utilizan análisis de datos para personalizar la experiencia del empleado.", "Data-Driven Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en la retroalimentación": ("Herramientas que utilizan la retroalimentación del cliente para mejorar la experiencia.", "Feedback-Driven Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en la retroalimentación": ("Herramientas que utilizan la retroalimentación del empleado para mejorar la experiencia.", "Feedback-Driven Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en la personalización": ("Herramientas que personalizan la experiencia del cliente según sus preferencias.", "Personalization-Driven Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en la personalización": ("Herramientas que personalizan la experiencia del empleado según sus preferencias.", "Personalization-Driven Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en la inteligencia emocional": ("Herramientas que utilizan la inteligencia emocional para mejorar la experiencia del cliente.", "Emotionally Intelligent Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en la inteligencia emocional": ("Herramientas que utilizan la inteligencia emocional para mejorar la experiencia del empleado.", "Emotionally Intelligent Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en la gamificación": ("Herramientas que utilizan elementos de juego para mejorar la experiencia del cliente.", "Gamified Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en la gamificación": ("Herramientas que utilizan elementos de juego para mejorar la experiencia del empleado.", "Gamified Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en la realidad aumentada": ("Herramientas que utilizan realidad aumentada para mejorar la experiencia del cliente.", "Augmented Reality Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en la realidad aumentada": ("Herramientas que utilizan realidad aumentada para mejorar la experiencia del empleado.", "Augmented Reality Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en la realidad virtual": ("Herramientas que utilizan realidad virtual para mejorar la experiencia del cliente.", "Virtual Reality Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en la realidad virtual": ("Herramientas que utilizan realidad virtual para mejorar la experiencia del empleado.", "Virtual Reality Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en la inteligencia artificial": ("Herramientas que utilizan inteligencia artificial para mejorar la experiencia del cliente.", "AI-Driven Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en la inteligencia artificial": ("Herramientas que utilizan inteligencia artificial para mejorar la experiencia del empleado.", "AI-Driven Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en la automatización": ("Herramientas que utilizan automatización para mejorar la experiencia del cliente.", "Automation-Driven Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en la automatización": ("Herramientas que utilizan automatización para mejorar la experiencia del empleado.", "Automation-Driven Employee Experience Management Technology"),
-    "tecnología de gestión de la experiencia del cliente basada en la nube": ("Herramientas que utilizan la nube para mejorar la experiencia del cliente.", "Cloud-Driven Customer Experience Management Technology"),
-    "tecnología de gestión de la experiencia del empleado basada en la nube": ("Herramientas que utilizan la nube para mejorar la experiencia del empleado.", "Cloud-Driven Employee Experience Management Technology"),
 }
-
 miembros_equipo = [
     {
         "Nombre": "Gabriel Pedreros",
@@ -316,88 +270,116 @@ miembros_equipo = [
     }
 ]
 
-# Función para hablar un texto
 def hablar(texto):
+    """Convierte texto a voz."""
     engine.say(texto)
     engine.runAndWait()
 
-# Función para reconocer voz
 def reconocer_voz():
+    """Reconoce comandos de voz."""
     r = sr.Recognizer()
     try:
         with sr.Microphone() as source:
-            print("Escuchando...")
+            print("🎤 Escuchando...")
             hablar("Te escucho")
             audio = r.listen(source)
             texto = r.recognize_google(audio, language='es-ES' if idioma_actual == "español" else 'en-US')
-            print(f"Has dicho: {texto}")
+            print(f"🗣️ Has dicho: {texto}")
             return texto.lower()
     except sr.UnknownValueError:
-        print("No he entendido lo que dijiste.")
+        print("❌ No he entendido lo que dijiste.")
         hablar("No he entendido, por favor repite")
         return None
     except sr.RequestError as e:
-        print(f"No se pudo obtener resultados de Google Speech Recognition; {e}")
+        print(f"⚠️ No se pudo obtener resultados de Google Speech Recognition; {e}")
         hablar("Ha ocurrido un error en el reconocimiento de voz")
         return None
 
-# Funciones adicionales
 def ver_lista_completa():
+    """Muestra la lista completa de palabras y sus definiciones."""
     print("\n--- Lista Completa de Palabras ---")
     for palabra, (definicion, traduccion) in diccionario_programacion.items():
         print(f"{palabra}: {definicion} ({traduccion})")
         hablar(f"{palabra}: {definicion}")
 
 def cambiar_idioma():
+    """Cambia el idioma del programa."""
     global idioma_actual
     if idioma_actual == "español":
         idioma_actual = "inglés"
-        print("Idioma cambiado a inglés.")
+        print("🌐 Idioma cambiado a inglés.")
         hablar("Language changed to English.")
     else:
         idioma_actual = "español"
-        print("Idioma cambiado a español.")
+        print("🌐 Idioma cambiado a español.")
         hablar("Idioma cambiado a español.")
 
 def agregar_palabra():
-    palabra = input("Introduce la nueva palabra: ")
-    definicion = input("Introduce la definición: ")
-    traduccion = input("Introduce la traducción: ")
+    """Agrega una nueva palabra al diccionario."""
+    palabra = input("✍️ Introduce la nueva palabra: ")
+    definicion = input("📖 Introduce la definición: ")
+    traduccion = input("🌍 Introduce la traducción: ")
     diccionario_programacion[palabra] = (definicion, traduccion)
-    print(f"Palabra '{palabra}' añadida exitosamente.")
+    print(f"✅ Palabra '{palabra}' añadida exitosamente.")
     hablar(f"Palabra '{palabra}' añadida exitosamente.")
 
 def mostrar_la_informacion_de_los_integrantes():
+    """Muestra la información de los integrantes del equipo."""
     print("\n--- Información de los Integrantes ---")
     for miembro in miembros_equipo:
         print(f"Nombre: {miembro['Nombre']}, Edad: {miembro['Edad']}, Rol: {miembro['Rol']}, Alias: {', '.join(miembro['Alias'])}")
         hablar(f"Nombre: {miembro['Nombre']}, Edad: {miembro['Edad']}, Rol: {miembro['Rol']}, Alias: {', '.join(miembro['Alias'])}")
 
 def buscar_palabra(diccionario, letra):
+    """Busca palabras que comienzan con una letra específica."""
     print(f"\n--- Palabras que comienzan con '{letra}' ---")
     for palabra in diccionario.keys():
         if palabra.startswith(letra):
             print(palabra)
             hablar(palabra)
 
+def ver_definicion():
+    """Muestra la definición de un término específico."""
+    palabra = input("🔍 Introduce la palabra de la que deseas ver la definición: ")
+    if palabra in diccionario_programacion:
+        definicion, traduccion = diccionario_programacion[palabra]
+        print(f"{palabra}: {definicion} ({traduccion})")
+        hablar(f"{palabra}: {definicion}")
+    else:
+        print("❌ Palabra no encontrada.")
+        hablar("Palabra no encontrada.")
+
+def escuchar_definicion():
+    """Escucha la definición de un término específico."""
+    palabra = input("🔊 Introduce la palabra de la que deseas escuchar la definición: ")
+    if palabra in diccionario_programacion:
+        definicion, _ = diccionario_programacion[palabra]
+        hablar(definicion)
+    else:
+        print("❌ Palabra no encontrada.")
+        hablar("Palabra no encontrada.")
+
 def menu():
-    mensaje_bienvenida = "¡Bienvenido/a al Diccionario de Código Viking: Términos y Definiciones para Desarrolladores! Nuestro programa te ofrece las siguientes funciones: Explorar el extenso catálogo de palabras, Opciones multilingües , Búsqueda avanzada por categorías y letras, Contribuir con nuevos términos, Conocer a nuestro equipo. ¿Qué te gustaría explorar primero?"
+    """Muestra el menú principal y gestiona las opciones del usuario."""
+    mensaje_bienvenida = "¡Bienvenido/a al Diccionario de Código Viking! 🪓 Nuestro programa te ofrece las siguientes funciones: Explorar el catálogo de palabras, opciones multilingües, búsqueda avanzada, contribuir con nuevos términos y conocer a nuestro equipo. ¿Qué te gustaría explorar primero?"
 
     print(mensaje_bienvenida)
     hablar(mensaje_bienvenida)
 
     while True:
-        print("\n--- Menú ---" if idioma_actual == "español" else "\n--- Menu ---")
+        print("\n--- Menú ---")
         opciones = [
-            "Ver la Lista Completa de Palabras  📜",  
-            "Cambiar Idioma 🌍",                       
-            "Buscar por letra 🔍",                     
-            "Agregar Palabra Nueva ✨",                
-            "Información de los integrantes",          
-            "Salir 🕯️"                               
+            "1. Ver la Lista Completa de Palabras ",  
+            "2. Cambiar Idioma ",                       
+            "3. Agregar Palabra Nueva ",                
+            "4. Información de los integrantes",          
+            "5. Buscar por letra ",                     
+            "6. Ver definición de un término específico", 
+            "7. Escuchar definición de un término específico",
+            "8. Salir"
         ]
-        for i, opcion in enumerate(opciones, start=1):
-            print(f"{i}. {opcion}")
+        for opcion in opciones:
+            print(opcion)
 
         usar_voz = input("¿Quieres usar voz para seleccionar una opción? (s/n): ")
         if usar_voz.lower() == 's':
@@ -408,40 +390,47 @@ def menu():
                 ver_lista_completa()
             elif "cambiar idioma" in opcion:
                 cambiar_idioma()
-            elif "buscar" in opcion:
-                letra = input("Ingrese la letra a buscar: " if idioma_actual == "español" else "Enter the letter to search: ")
-                buscar_palabra(diccionario_programacion, letra)
             elif "agregar" in opcion:
                 agregar_palabra()
             elif "información" in opcion:
                 mostrar_la_informacion_de_los_integrantes()
+            elif "buscar" in opcion:
+                letra = input("Ingrese la letra a buscar: ")
+                buscar_palabra(diccionario_programacion, letra)
+            elif "definición" in opcion:
+                ver_definicion()
+            elif "escuchar definición" in opcion:
+                escuchar_definicion()
             elif "salir" in opcion:
-                print("¡Hasta Luego! 👋 " if idioma_actual == "español" else "Goodbye! 👋")
-                hablar("¡Hasta Luego!" if idioma_actual == "español" else "Goodbye!")
+                print("¡Hasta Luego! 👋")
+                hablar("¡Hasta Luego!")
                 break
             else:
-                print("Opción no reconocida, intenta nuevamente.")
+                print("❌ Opción no reconocida, intenta nuevamente.")
                 hablar("Opción no reconocida, intenta nuevamente.")
         else:
-            opcion = input("Seleccione una opción: " if idioma_actual == "español" else "Select an option: ")
+            opcion = input("Seleccione una opción: ")
             if opcion == "1":
                 ver_lista_completa()
             elif opcion == "2":
                 cambiar_idioma()
             elif opcion == "3":
-                letra = input("Ingrese la letra a buscar: " if idioma_actual == "español" else "Enter the letter to search: ")
-                buscar_palabra(diccionario_programacion, letra)
-            elif opcion == "4":
                 agregar_palabra()
-            elif opcion == "5":
+            elif opcion == "4":
                 mostrar_la_informacion_de_los_integrantes()
+            elif opcion == "5":
+                letra = input("Ingrese la letra a buscar: ")
+                buscar_palabra(diccionario_programacion, letra)
             elif opcion == "6":
-                print("¡Hasta Luego! 👋 " if idioma_actual == "español" else "Goodbye! 👋")
-                hablar("¡Hasta Luego!" if idioma_actual == "español" else "Goodbye!")
+                ver_definicion()
+            elif opcion == "7":
+                escuchar_definicion()
+            elif opcion == "8":
+                print("¡Hasta Luego! 👋")
+                hablar("¡Hasta Luego!")
                 break 
             else:
-                print("Opción inválida. Intenta Nuevamente." if idioma_actual == "español" else "Invalid Option. Please try again.")
-                hablar("Opción inválida. Intenta Nuevamente." if idioma_actual == "español" else "Invalid Option. Please try again.")
+                print("❌ Opción inválida. Intenta Nuevamente.")
 
 if __name__ == "__main__":
     menu()
