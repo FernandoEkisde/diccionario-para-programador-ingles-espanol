@@ -1,6 +1,6 @@
 # 📚 **Diccionario Técnico Bilingüe: Inglés - Español para Programadores**
 
-![Snake animation](https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg)
+[**Visita el repositorio aquí**](https://github.com/TU_USUARIO/DICIONARIO-TECNICO-BILINGUE)
 
 ## 🚀 **Descripción del Proyecto**
 
@@ -14,17 +14,17 @@ El objetivo principal de este diccionario es ofrecer una plataforma de fácil ac
 
 ---
 
-## 👥 **Colaboradores**
+## 👥 **Integrantes del Proyecto**
 
-Este proyecto ha sido posible gracias al valioso esfuerzo de los siguientes colaboradores:
+Este proyecto ha sido posible gracias al esfuerzo y dedicación de los siguientes colaboradores:
 
-- **Fernando Ibáñez** (@FernandoEkisde)  
-- **Jesús Vidal** (@Jvidal47)  
-- **Maximiliano Véliz** (@mjva7)  
-- **Valentina San Martín** (@valentinax12a)  
-- **Gabriel Pedreros** (@Gabr1elpedreros)  
-- **Ángel Zúñiga** (@bellcranel7047)  
-- **Matías Lara** (@matiasroberto12a)
+- **Fernando Ibáñez** (@FernandoEkisde): Experto en repositorios y gestión de código, responsable de la organización del proyecto y la colaboración con herramientas de control de versiones.
+- **Jesús Vidal** (@Jvidal47): Desarrollador ágil y optimizador, encargado de mejorar la eficiencia y la funcionalidad de la herramienta.
+- **Maximiliano Véliz** (@mjva7): Coordinador de pruebas, evaluador y responsable de asegurar la calidad de las traducciones y definiciones.
+- **Valentina San Martín** (@valentinax12a): Estratega de comunicación, encargada de la gestión de documentación y de la interacción con la comunidad.
+- **Gabriel Pedreros** (@Gabr1elpedreros): Líder del proyecto, responsable de la visión técnica y el diseño global de la herramienta.
+- **Ángel Zúñiga** (@bellcranel7047): Supervisor general del proyecto, garantizando que todo funcione correctamente en cada fase de desarrollo.
+- **Matías Lara** (@matiasroberto12a): Diseñador visual, encargado de crear una interfaz intuitiva y accesible para todos los usuarios.
 
 ---
 
@@ -39,6 +39,16 @@ Este proyecto ha sido posible gracias al valioso esfuerzo de los siguientes cola
 ### **Pasos para Contribuir:**
 
 1. Haz un fork del repositorio.
-2. Crea una nueva rama para tus contribuciones:  
-   ```bash
-   git checkout -b feature/nueva-palabra
+2. Crea una nueva rama para tus contribuciones.
+3. Realiza tus cambios, asegurándote de que todo funcione correctamente.
+4. Envía un pull request detallando los cambios realizados y cómo contribuyen al proyecto.
+
+---
+
+## 🌍 **Visión a Futuro**
+
+En el futuro, queremos expandir el diccionario para incluir más lenguajes de programación, integrar recursos interactivos y ofrecer versiones multiplataforma (móvil y web) para llegar a más usuarios.
+
+---
+
+¡Gracias por ser parte de este proyecto y contribuir a un aprendizaje más inclusivo y colaborativo! 🚀
