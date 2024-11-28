@@ -1,61 +1,44 @@
-# 📚 Diccionario Técnico Bilingüe: Inglés - Español para Programadores
+# 📚 **Diccionario Técnico Bilingüe: Inglés - Español para Programadores**
 
 ![Snake animation](https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg)
 
-## 🚀 Descripción del Proyecto
+## 🚀 **Descripción del Proyecto**
 
-Este diccionario está diseñado para facilitar el aprendizaje y la comprensión de términos técnicos en programación, ofreciendo traducciones precisas de inglés a español. Es un recurso colaborativo dirigido tanto a principiantes como a programadores avanzados que deseen perfeccionar su dominio del lenguaje técnico.
+El **Diccionario Técnico Bilingüe: Inglés - Español para Programadores** es una herramienta colaborativa diseñada para proporcionar traducciones precisas y comprensibles de términos técnicos utilizados en programación. Este proyecto busca ser un recurso indispensable tanto para desarrolladores novatos como para expertos, facilitando la adquisición de un vocabulario técnico global.
 
-### 🎯 Objetivo
-Proporcionar un recurso fácil de usar para entender términos clave de la programación y fomentar la colaboración entre la comunidad de programadores hispanohablantes.
+Al combinar la accesibilidad con un enfoque comunitario, el diccionario busca promover el aprendizaje de conceptos clave, además de ser un punto de referencia esencial para resolver dudas sobre terminología técnica.
 
----
+### 🎯 **Objetivo del Proyecto**
 
-## 👥 Colaboradores
-
-Este proyecto fue creado gracias al esfuerzo de los siguientes colaboradores:
-
-- **Fernando Ibáñez**  (@FernandoEkisde)  
-- **Jesús Vidal**  (@Jvidal47)  
-- **Maximiliano Véliz**  (@mjva7)  
-- **Valentina San Martín**  (@valentinax12a)  
-- **Gabriel Pedreros**  (@Gabr1elpedreros)  
-- **Ángel Zúñiga**  (@bellcranel7047)  
-- **Matías Lara**  (@matiasroberto12a)
+El objetivo principal de este diccionario es ofrecer una plataforma de fácil acceso que permita a los programadores de habla hispana comprender de manera efectiva los términos técnicos más utilizados en la industria del software. Además, buscamos fomentar la participación activa de la comunidad, creando un proyecto en constante evolución que refleje el dinamismo del mundo tecnológico.
 
 ---
 
-## 📖 Cómo Contribuir
+## 👥 **Colaboradores**
 
-¡Nos encantaría que te unieras a este proyecto! Puedes contribuir de las siguientes maneras:
+Este proyecto ha sido posible gracias al valioso esfuerzo de los siguientes colaboradores:
 
-1. **Proponer nuevas palabras:** Sugiere nuevos términos que puedan ser añadidos al diccionario.
-2. **Revisar traducciones existentes:** Ayuda a mejorar las traducciones actuales.
-3. **Mejorar la estructura:** Si tienes ideas para mejorar la usabilidad del diccionario, ¡serán bienvenidas!
+- **Fernando Ibáñez** (@FernandoEkisde)  
+- **Jesús Vidal** (@Jvidal47)  
+- **Maximiliano Véliz** (@mjva7)  
+- **Valentina San Martín** (@valentinax12a)  
+- **Gabriel Pedreros** (@Gabr1elpedreros)  
+- **Ángel Zúñiga** (@bellcranel7047)  
+- **Matías Lara** (@matiasroberto12a)
 
-### Pasos para contribuir:
+---
+
+## 📖 **Cómo Contribuir**
+
+¡Tu participación es esencial para mejorar este proyecto! Puedes contribuir de varias maneras:
+
+1. **Proponer nuevas palabras:** Si encuentras términos que aún no están en el diccionario, no dudes en sugerirlos.
+2. **Mejorar traducciones existentes:** Ayúdanos a hacer que las definiciones y traducciones sean más precisas.
+3. **Aportar ideas para mejorar la estructura:** Si tienes sugerencias sobre cómo hacer que la interfaz o la documentación sea más intuitiva, ¡compártelas!
+
+### **Pasos para Contribuir:**
 
 1. Haz un fork del repositorio.
-2. Crea una nueva rama: `git checkout -b feature/nueva-palabra`.
-3. Haz tus cambios y commit: `git commit -m "Añadida nueva palabra: [nombre]"`.
-4. Sube tus cambios: `git push origin feature/nueva-palabra`.
-5. Crea un Pull Request.
-
----
-
-## 🛠️ Tecnologías Utilizadas
-
-- **Git**: Para control de versiones.
-- **Markdown**: Para la documentación del proyecto.
-- **GitHub Actions**: Animación de la serpiente que refleja las contribuciones.
-
----
-
-## 📦 Instalación
-
-Si deseas clonar el proyecto y usarlo localmente, sigue estos pasos:
-
-1. Clona el repositorio:
-
+2. Crea una nueva rama para tus contribuciones:  
    ```bash
-   git clone https://github.com/tu-usuario/diccionario-programacion.git
+   git checkout -b feature/nueva-palabra
