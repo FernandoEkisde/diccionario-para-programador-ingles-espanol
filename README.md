@@ -1,6 +1,6 @@
 # 📚 **Diccionario Técnico Bilingüe: Inglés - Español para Programadores**
 
-[**Visita el repositorio aquí**](https://github.com/TU_USUARIO/DICIONARIO-TECNICO-BILINGUE)
+[**Visita el repositorio aquí**](https://github.com/FernandoEkisde/diccionario-para-programador-ingles-espanol)
 
 ## 🚀 **Descripción del Proyecto**
 
