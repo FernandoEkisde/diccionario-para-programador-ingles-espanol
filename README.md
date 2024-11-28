@@ -1,4 +1,6 @@
 # 📚 **Diccionario Técnico Bilingüe: Inglés - Español para Programadores**
+<img src="https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake-4.svg" alt="Snake animation" />
+
 
 [**Visita el repositorio aquí**](https://github.com/FernandoEkisde/diccionario-para-programador-ingles-espanol)
 
