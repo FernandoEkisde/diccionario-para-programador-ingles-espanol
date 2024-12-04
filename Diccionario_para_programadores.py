@@ -1,3 +1,13 @@
+import speech_recognition as sr
+import pyttsx3
+
+# Inicializar el motor de síntesis de voz
+engine = pyttsx3.init()
+
+# Idioma actual
+idioma_actual = "español"
+
+# Diccionario de términos de programación
 diccionario_programacion = {
 
     "abstracción": {
@@ -687,5 +697,234 @@ miembros_equipo = [
             "Role": "Documentation and Communication Manager",
             "Aliases": ["The Digital Strategist", "The Data Storyteller"]
         }
+    },
+    {
+        "Nombre": "Macarena Jamett",
+        "Edad": 48,
+        "Rol": "Profesora",
+        "Alias": ["La mentora del código", "La guía pedagógica"],
+        "Translation": {
+            "Name": "Macarena Jamett",
+            "Age": 48,
+            "Role": "Professor",
+            "Aliases": ["The Code Mentor", "The Pedagogical Guide"]
+        }
     }
 ]
+
+
+# Mensajes en español
+mensajes_es = {
+    "bienvenida": "¡Bienvenido/a al Manual de Términos de Programación Nuestro programa te ofrece las siguientes funciones: Explorar el catálogo de palabras, opciones multilingües, búsqueda avanzada, contribuir con nuevos términos y conocer a nuestro equipo. ¿Qué te gustaría explorar primero?",
+    "opciones": [
+        "1. Ver la Lista Completa de Palabras ",
+        "2. Cambiar Idioma ",
+        "3. Agregar Palabra Nueva ",
+        "4. Información de los integrantes",
+        "5. Buscar por letra ",
+        "6. Ver definición de un término específico",
+        "7. Escuchar definición de un término específico"
+    ],
+    "salir": "¡Hasta Luego!",
+    "no_entendido": "No he entendido, por favor repite",
+    "palabra_no_encontrada": "Palabra no encontrada.",
+    "opcion_no_reconocida": "Opción no reconocida, intenta nuevamente.",
+}
+
+# Mensajes en inglés
+mensajes_en = {
+    "bienvenida": "Welcome to the Viking Code Dictionary! Our program offers you the following features: Explore the word catalog, multilingual options, advanced search, contribute new terms, and learn about our team. What would you like to explore first?",
+    "opciones": [
+        "1. View the Complete List of Words ",
+        "2. Change Language ",
+        "3. Add New Word ",
+        "4. Team Member Information",
+        "5. Search by Letter ",
+        "6. View Definition of a Specific Term",
+        "7. Listen to the Definition of a Specific Term"
+    ],
+    "salir": "See you later!",
+    "no_entendido": "I didn't understand, please repeat.",
+    "palabra_no_encontrada": "Word not found.",
+    "opcion_no_reconocida": "Unrecognized option, please try again.",
+}
+
+def hablar(texto):
+    """Convierte texto a voz."""
+    engine.say(texto)
+    engine.runAndWait()
+
+def reconocer_voz():
+    """Reconoce comandos de voz."""
+    r = sr.Recognizer()
+    try:
+        with sr.Microphone() as source:
+            print("Escuchando...")
+            hablar("Te escucho" if idioma_actual == "español" else "I'm listening")
+            audio = r.listen(source)
+            texto = r.recognize_google(audio, language='es-ES' if idioma_actual == "español" else 'en-US')
+            print(f"Has dicho: {texto}")
+            return texto.lower()
+    except sr.UnknownValueError:
+        print(mensajes_es["no_entendido"] if idioma_actual == "español" else mensajes_en["no_entendido"])
+        hablar(mensajes_es["no_entendido"] if idioma_actual == "español" else mensajes_en["no_entendido"])
+        return None
+    except sr.RequestError as e:
+        print(f"No se pudo obtener resultados de Google Speech Recognition; {e}")
+        hablar("Ha ocurrido un error en el reconocimiento de voz" if idioma_actual == "español" else "An error occurred in voice recognition")
+        return None
+
+def ver_lista_completa():
+    """Muestra la lista completa de palabras y sus definiciones."""
+    print("\n--- Lista Completa de Palabras ---" if idioma_actual == "español" else "\n--- Complete List of Words ---")
+    for palabra, contenido in diccionario_programacion.items():
+        definicion = contenido["definicion"]
+        traduccion = contenido["ejemplo"]
+        print(f"{palabra}: {definicion[0]} ({traduccion[0]})")
+        hablar(f"{palabra}: {definicion[0]}")
+
+def cambiar_idioma():
+    """Cambia el idioma del programa."""
+    global idioma_actual
+    if idioma_actual == "español":
+        idioma_actual = "inglés"
+        print("Idioma cambiado a inglés.")
+        hablar("Language changed to English.")
+    else:
+        idioma_actual = "español"
+        print("Idioma cambiado a español.")
+        hablar("Idioma cambiado a español.")
+
+def agregar_palabra():
+    """Agrega una nueva palabra al diccionario."""
+    palabra = input("Introduce la nueva palabra: " if idioma_actual == "español" else "Enter the new word: ")
+    definicion = input("Introduce la definición: " if idioma_actual == "español" else "Enter the definition: ")
+    traduccion = input("Introduce la traducción: " if idioma_actual == "español" else "Enter the translation: ")
+    
+    diccionario_programacion[palabra] = {
+        "definicion": (definicion, traduccion),
+        "ejemplo": (traduccion, definicion)  # Invertir para mantener la estructura
+    }
+    mensaje_exito = f"Palabra '{palabra}' añadida exitosamente." if idioma_actual == "español" else f"Word '{palabra}' added successfully."
+    print(mensaje_exito)
+    hablar(mensaje_exito)
+
+def mostrar_informacion_integrantes():
+    """Muestra la información de los integrantes del equipo."""
+    encabezado = "\n--- Información de los Integrantes ---" if idioma_actual == "español" else "\n--- Team Member Information ---"
+    print(encabezado)
+    
+    for miembro in miembros_equipo:
+        info = f"Nombre: {miembro['Nombre']}, Edad: {miembro['Edad']}, Rol: {miembro['Rol']}, Alias: {', '.join(miembro['Alias'])}"
+        print(info)
+        hablar(info)
+
+def buscar_palabra(diccionario, letra):
+    """Busca palabras que comienzan con una letra específica."""
+    encabezado = f"\n--- Palabras que comienzan con '{letra}' ---" if idioma_actual == "español" else f"\n--- Words that start with '{letra}' ---"
+    print(encabezado)
+    
+    palabras_encontradas = [palabra for palabra in diccionario.keys() if palabra.startswith(letra)]
+    
+    if palabras_encontradas:
+        for palabra in palabras_encontradas:
+            print(palabra)
+            hablar(palabra)
+    else:
+        mensaje_no_encontrado = "No se encontraron palabras." if idioma_actual == "español" else "No words found."
+        print(mensaje_no_encontrado)
+        hablar(mensaje_no_encontrado)
+
+def ver_definicion():
+    """Muestra la definición de un término específico."""
+    palabra = input("Introduce la palabra de la que deseas ver la definición: " if idioma_actual == "español" else "Enter the word you want to see the definition of: ")
+    
+    if palabra in diccionario_programacion:
+        definicion, traduccion = diccionario_programacion[palabra]["definicion"]
+        mensaje_definicion = f"{palabra}: {definicion} ({traduccion})"
+        print(mensaje_definicion)
+        hablar(mensaje_definicion)
+    else:
+        mensaje_no_encontrada = mensajes_es["palabra_no_encontrada"] if idioma_actual == "español" else mensajes_en["palabra_no_encontrada"]
+        print(mensaje_no_encontrada)
+        hablar(mensaje_no_encontrada)
+
+def escuchar_definicion():
+    """Escucha la definición de un término específico."""
+    palabra = input("Introduce la palabra de la que deseas escuchar la definición: " if idioma_actual == "español" else "Enter the word you want to listen to the definition of: ")
+    
+    if palabra in diccionario_programacion:
+        definicion, _ = diccionario_programacion[palabra]["definicion"]
+        hablar(definicion)
+    else:
+        mensaje_no_encontrada = mensajes_es["palabra_no_encontrada"] if idioma_actual == "español" else mensajes_en["palabra_no_encontrada"]
+        print(mensaje_no_encontrada)
+        hablar(mensaje_no_encontrada)
+
+def menu():
+    """ Muestra el menú principal y gestiona las opciones del usuario."""
+    mensaje_bienvenida = mensajes_es["bienvenida"] if idioma_actual == "español" else mensajes_en["bienvenida"]
+    print(mensaje_bienvenida)
+    hablar(mensaje_bienvenida)
+
+    while True:
+        print("\n--- Menú ---" if idioma_actual == "español" else "\n--- Menu ---")
+        opciones = mensajes_es["opciones"] if idioma_actual == "español" else mensajes_en["opciones"]
+        
+        for opcion in opciones:
+            print(opcion)
+
+        usar_voz = input("¿Quieres usar voz para seleccionar una opción? (s/n): " if idioma_actual == "español" else "Do you want to use voice to select an option? (y/n): ")
+        
+        if usar_voz.lower() in ['s', 'y']:
+            opcion = reconocer_voz()
+            if opcion is None:
+                continue  # Si no se entendió, vuelve a preguntar
+            if "ver la lista" in opcion or "view the complete list" in opcion:
+                ver_lista_completa()
+            elif "cambiar idioma" in opcion or "change language" in opcion:
+                cambiar_idioma()
+            elif "agregar" in opcion or "add" in opcion:
+                agregar_palabra()
+            elif "información" in opcion or "information" in opcion:
+                mostrar_informacion_integrantes()
+            elif "buscar" in opcion or "search" in opcion:
+                letra = input("Ingrese la letra a buscar: " if idioma_actual == "español" else "Enter the letter to search: ")
+                buscar_palabra(diccionario_programacion, letra)
+            elif "definición" in opcion or "definition" in opcion:
+                ver_definicion()
+            elif "escuchar definición" in opcion or "listen to definition" in opcion:
+                escuchar_definicion()
+            elif "salir" in opcion or "exit" in opcion:
+                print(mensajes_es["salir"] if idioma_actual == "español" else mensajes_en["salir"])
+                hablar(mensajes_es["salir"] if idioma_actual == "español" else mensajes_en["salir"])
+                break
+            else:
+                print(mensajes_es["opcion_no_reconocida"] if idioma_actual == "español" else mensajes_en["opcion_no_reconocida"])
+                hablar(mensajes_es["opcion_no_reconocida"] if idioma_actual == "español" else mensajes_en["opcion_no_reconocida"])
+        else:
+            opcion = input("Seleccione una opción: " if idioma_actual == "español" else "Select an option: ")
+            if opcion == "1":
+                ver_lista_completa()
+            elif opcion == "2":
+                cambiar_idioma()
+            elif opcion == "3":
+                agregar_palabra()
+            elif opcion == "4":
+                mostrar_informacion_integrantes()
+            elif opcion == "5":
+                letra = input("Ingrese la letra a buscar: " if idioma_actual == "español" else "Enter the letter to search: ")
+                buscar_palabra(diccionario_programacion, letra)
+            elif opcion == "6":
+                ver_definicion()
+            elif opcion == "7":
+                escuchar_definicion()
+            elif opcion.lower() == "salir":
+                print(mensajes_es["salir"] if idioma_actual == "español" else mensajes_en["salir"])
+                hablar(mensajes_es["salir"] if idioma_actual == "español" else mensajes_en["salir"])
+                break
+            else:
+                print("Opción inválida. Intenta Nuevamente." if idioma_actual == "español" else "Invalid option. Please try again.")
+
+if __name__ == "__main__":
+    menu()
