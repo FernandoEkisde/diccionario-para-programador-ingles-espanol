@@ -1,0 +1,86 @@
+[
+    {
+        "Nombre": "Gabriel Pedreros",
+        "Edad": 17,
+        "Rol": "Líder técnico y creador de código",
+        "Alias": ["El arquitecto del código", "El visionario técnico"],
+        "Translation": {
+            "Name": "Gabriel Pedreros",
+            "Age": 17,
+            "Role": "Technical Leader and Code Creator",
+            "Aliases": ["The Code Architect", "The Technical Visionary"]
+        }
+    },
+    {
+        "Nombre": "Jesús Vidal",
+        "Edad": 16,
+        "Rol": "Integrante de desarrollo",
+        "Alias": ["El ejecutor del código", "El constructor ágil"],
+        "Translation": {
+            "Name": "Jesús Vidal",
+            "Age": 16,
+            "Role": "Development Member",
+            "Aliases": ["The Code Executor", "The Agile Builder"]
+        }
+    },
+    {
+        "Nombre": "Maximiliano Veliz",
+        "Edad": 17,
+        "Rol": "Coordinador de pruebas y desarrollador",
+        "Alias": ["El evaluador", "El crítico del código"],
+        "Translation": {
+            "Name": "Maximiliano Veliz",
+            "Age": 17,
+            "Role": "Testing Coordinator and Developer",
+            "Aliases": ["The Evaluator", "The Code Critic"]
+        }
+    },
+    {
+        "Nombre": "Fernando Ibañez",
+        "Edad": 16,
+        "Rol": "Experto en GitHub",
+        "Alias": ["El maestro de repositorios", "El guardián del repositorio"],
+        "Translation": {
+            "Name": "Fernando Ibañez",
+            "Age": 16,
+            "Role": "GitHub Expert",
+            "Aliases": ["The Repository Master", "The Repository Guardian"]
+        }
+    },
+    {
+        "Nombre": "Matías Lara",
+        "Edad": 17,
+        "Rol": "Especialista en diseño de interfaces",
+        "Alias": ["El artista del código", "El escultor digital"],
+        "Translation": {
+            "Name": "Matías Lara",
+            "Age": 17,
+            "Role": "Interface Design Specialist",
+            "Aliases": ["The Code Artist", "The Digital Sculptor"]
+        }
+    },
+    {
+        "Nombre": "Valentina San Martín",
+        "Edad": 16,
+        "Rol": "Gestora de documentación y comunicación",
+        "Alias": ["La estratega digital", "La narradora de datos"],
+        "Translation": {
+            "Name": "Valentina San Martín",
+            "Age": 16,
+            "Role": "Documentation and Communication Manager",
+            "Aliases": ["The Digital Strategist", "The Data Storyteller"]
+        }
+    },
+    {
+        "Nombre": "Macarena Jamett",
+        "Edad": 48,
+        "Rol": "Profesora",
+        "Alias": ["La mentora del código", "La guía pedagógica"],
+        "Translation": {
+            "Name": "Macarena Jamett",
+            "Age": 48,
+            "Role": "Professor",
+            "Aliases": ["The Code Mentor", "The Pedagogical Guide"]
+        }
+    }
+]
