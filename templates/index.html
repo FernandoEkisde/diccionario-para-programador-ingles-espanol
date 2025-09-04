@@ -5,7 +5,7 @@
     <title>Diccionario de Programación</title>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
+      href="{{ url_for('static', filename='css/index.css') }}"
     />
   </head>
   <body>
@@ -50,5 +50,21 @@
         </li>
       </ul>
     </nav>
+
+    <!-- Voice Chat Section -->
+    <section id="voice-chat" class="voice-chat">
+      <h2>{{ 'Chat de Voz' if idioma == 'español' else 'Voice Chat' }}</h2>
+      <p>
+        {{ 'Habla para buscar una palabra o pedir una definición.' if idioma ==
+        'español' else 'Speak to search for a word or ask for a definition.' }}
+      </p>
+      <button id="voice-btn" class="btn">
+        {{ 'Hablar' if idioma == 'español' else 'Speak' }}
+      </button>
+      <div id="chat-output"></div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/voice.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
   </body>
 </html>

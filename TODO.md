@@ -32,5 +32,7 @@
 
 ## Seguimiento
 
+- [x] Mover sidebar de letras de "Ver Lista Completa" a "Buscar por Letra"
+- [x] Eliminar campo de entrada "ingrese la letra" y hacer funcional el sidebar
 - Actualizar este archivo a medida que se completen tareas.
 - Probar voz y navegación después de cambios.

@@ -7,38 +7,96 @@
     </title>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
+      href="{{ url_for('static', filename='css/search.css') }}"
     />
   </head>
   <body>
-    <h1>
-      {{ 'Buscar por Letra' if idioma == 'español' else 'Search by Letter' }}
-    </h1>
-    <form method="post">
-      <label for="letra"
-        >{{ 'Ingrese la letra' if idioma == 'español' else 'Enter the letter'
-        }}:</label
-      >
-      <input type="text" id="letra" name="letra" maxlength="1" required />
-      <button type="submit">
-        {{ 'Buscar' if idioma == 'español' else 'Search' }}
-      </button>
-    </form>
-    {% if resultado %}
-    <h2>
-      {{ 'Palabras que comienzan con' if idioma == 'español' else 'Words that
-      start with' }} '{{ letra }}'
-    </h2>
-    <ul>
-      {% for palabra in resultado %}
-      <li>
-        <a href="{{ url_for('definicion', palabra=palabra) }}">{{ palabra }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-    <a href="{{ url_for('index') }}"
-      >{{ 'Volver al inicio' if idioma == 'español' else 'Back to Home' }}</a
-    >
+    <div class="container">
+      <aside class="sidebar">
+        <h2>{{ 'Letras' if idioma == 'español' else 'Letters' }}</h2>
+        <ul class="letter-list">
+          {% for letra in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
+          <li>
+            <a href="{{ url_for('buscar') }}?letra={{ letra|lower }}"
+              >{{ letra }}</a
+            >
+          </li>
+          {% endfor %}
+        </ul>
+      </aside>
+      <main class="content">
+        <h1>
+          {{ 'Buscar por Letra' if idioma == 'español' else 'Search by Letter'
+          }}
+        </h1>
+        <p>
+          {{ 'Haz clic en una letra del sidebar para buscar palabras que
+          comiencen con esa letra.' if idioma == 'español' else 'Click on a
+          letter in the sidebar to search for words starting with that letter.'
+          }}
+        </p>
+        {% if resultado %}
+        <h2>
+          {{ 'Palabras que comienzan con' if idioma == 'español' else 'Words
+          that start with' }} '{{ letra }}'
+        </h2>
+        <div class="results-container">
+          {% for palabra, contenido in resultado.items() %}
+          <div class="word-card">
+            <h3 class="word-title">
+              <a href="{{ url_for('definicion', palabra=palabra) }}"
+                >{{ palabra }}</a
+              >
+            </h3>
+            <div class="word-content">
+              <div class="definition">
+                <strong
+                  >{{ 'Definición' if idioma == 'español' else 'Definition'
+                  }}:</strong
+                >
+                <p>
+                  {{ contenido.definicion[0] if idioma == 'español' else
+                  contenido.definicion[1] }}
+                </p>
+              </div>
+              <div class="translation">
+                <strong
+                  >{{ 'Traducción' if idioma == 'español' else 'Translation'
+                  }}:</strong
+                >
+                <p>
+                  {{ contenido.definicion[1] if idioma == 'español' else
+                  contenido.definicion[0] }}
+                </p>
+              </div>
+              <div class="example">
+                <strong
+                  >{{ 'Ejemplo de uso' if idioma == 'español' else 'Usage
+                  example' }}:</strong
+                >
+                <p>
+                  {{ contenido.ejemplo[0] if idioma == 'español' else
+                  contenido.ejemplo[1] }}
+                </p>
+              </div>
+            </div>
+            <div class="word-actions">
+              <a
+                href="{{ url_for('escuchar', palabra=palabra) }}"
+                class="btn-voice"
+                title="{{ 'Escuchar definición' if idioma == 'español' else 'Listen definition' }}"
+                >🔊</a
+              >
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <a href="{{ url_for('index') }}" class="btn"
+          >{{ 'Volver al inicio' if idioma == 'español' else 'Back to Home'
+          }}</a
+        >
+      </main>
+    </div>
   </body>
 </html>

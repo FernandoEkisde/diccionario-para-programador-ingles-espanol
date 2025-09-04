@@ -69,6 +69,9 @@ def buscar():
     letra = ''
     if request.method == 'POST':
         letra = request.form.get('letra', '').lower()
+    elif request.method == 'GET':
+        letra = request.args.get('letra', '').lower()
+    if letra:
         resultado = {k: v for k, v in diccionario_programacion.items() if k.lower().startswith(letra)}
     return render_template('search.html', resultado=resultado, letra=letra, idioma=idioma_actual)
 
@@ -129,6 +132,25 @@ def cambiar_idioma():
 def habbo():
     url = request.args.get('url', 'https://www.habbo.com')
     return redirect(url)
+
+@app.route('/api/definicion/<palabra>')
+def api_definicion(palabra):
+    palabra_lower = palabra.lower()
+    if palabra_lower in diccionario_programacion:
+        definicion = diccionario_programacion[palabra_lower]["definicion"][0]
+        traduccion = diccionario_programacion[palabra_lower]["ejemplo"][0]
+        return jsonify({
+            "palabra": palabra,
+            "definicion": definicion,
+            "traduccion": traduccion,
+            "encontrada": True
+        })
+    else:
+        return jsonify({
+            "palabra": palabra,
+            "mensaje": mensajes[idioma_actual]["palabra_no_encontrada"],
+            "encontrada": False
+        })
 
 if __name__ == '__main__':
     app.run(debug=True)

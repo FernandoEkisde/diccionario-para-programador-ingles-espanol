@@ -8,25 +8,36 @@
     </title>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
+      href="{{ url_for('static', filename='css/list.css') }}"
     />
   </head>
   <body>
-    <h1>
-      {{ 'Lista Completa de Palabras' if idioma == 'español' else 'Complete List
-      of Words' }}
-    </h1>
-    <ul>
-      {% for palabra, contenido in diccionario.items() %}
-      <li>
-        <a href="{{ url_for('definicion', palabra=palabra) }}">{{ palabra }}</a
-        >: {{ contenido.definicion[0] }} ({{ contenido.ejemplo[0] }})
-        <a href="{{ url_for('escuchar', palabra=palabra) }}">🔊</a>
-      </li>
-      {% endfor %}
-    </ul>
-    <a href="{{ url_for('index') }}"
-      >{{ 'Volver al inicio' if idioma == 'español' else 'Back to Home' }}</a
-    >
+    <div class="container">
+      <main class="content">
+        <h1>
+          {{ 'Lista Completa de Palabras' if idioma == 'español' else 'Complete
+          List of Words' }}
+        </h1>
+        <ul class="word-list">
+          {% for palabra, contenido in diccionario.items() %}
+          <li class="word-item">
+            <a href="{{ url_for('definicion', palabra=palabra) }}"
+              >{{ palabra }}</a
+            >: {{ contenido.definicion[0] }} ({{ contenido.ejemplo[0] }})
+            <a
+              href="{{ url_for('escuchar', palabra=palabra) }}"
+              class="btn-voice"
+              title="{{ 'Escuchar definición' if idioma == 'español' else 'Listen definition' }}"
+              >🔊</a
+            >
+          </li>
+          {% endfor %}
+        </ul>
+        <a href="{{ url_for('index') }}" class="btn"
+          >{{ 'Volver al inicio' if idioma == 'español' else 'Back to Home'
+          }}</a
+        >
+      </main>
+    </div>
   </body>
 </html>

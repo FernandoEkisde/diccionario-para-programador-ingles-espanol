@@ -2,31 +2,33 @@
 <html lang="{{ 'es' if idioma == 'español' else 'en' }}">
   <head>
     <meta charset="UTF-8" />
-    <title>
-      {{ 'Información de los Integrantes' if idioma == 'español' else 'Team
-      Member Information' }}
-    </title>
+    <title>{{ 'Equipo' if idioma == 'español' else 'Team' }}</title>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
+      href="{{ url_for('static', filename='css/team.css') }}"
     />
   </head>
   <body>
-    <h1>
-      {{ 'Información de los Integrantes' if idioma == 'español' else 'Team
-      Member Information' }}
-    </h1>
-    <ul>
-      {% for miembro in miembros %}
-      <li>
-        <strong>{{ miembro.Nombre }}</strong> ({{ miembro.Edad }} años) - {{
-        miembro.Rol }}<br />
-        {{ 'Alias' if idioma == 'español' else 'Aliases' }}: {{ miembro.Alias |
-        join(', ') }}
-      </li>
-      {% endfor %}
-    </ul>
-    <a href="{{ url_for('index') }}"
+    <h1>{{ 'Equipo' if idioma == 'español' else 'Team' }}</h1>
+    <div class="container">
+      <div class="team-grid">
+        {% for miembro in miembros %}
+        <div class="team-member">
+          <h2>{{ miembro.Nombre }}</h2>
+          <p>
+            <strong>{{ 'Rol' if idioma == 'español' else 'Role' }}:</strong> {{
+            miembro.Rol }}
+          </p>
+          <p>
+            <strong>{{ 'Edad' if idioma == 'español' else 'Age' }}:</strong> {{
+            miembro.Edad }} {{ 'años' if idioma == 'español' else 'years' }}
+          </p>
+          <p class="aliases">{{ miembro.Alias | join(', ') }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <a href="{{ url_for('index') }}" class="btn"
       >{{ 'Volver al inicio' if idioma == 'español' else 'Back to Home' }}</a
     >
   </body>

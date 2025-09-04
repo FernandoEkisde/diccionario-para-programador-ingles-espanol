@@ -1,0 +1,73 @@
+/* Styles for index.html */
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f0f4f8;
+  color: #2c3e50;
+  margin: 0;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #34495e;
+  margin-bottom: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #2980b9;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #1abc9c;
+}
+
+/* Voice chat section */
+#voice-chat {
+  margin-top: 2rem;
+  background: #ecf0f1;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#voice-chat h2 {
+  margin-bottom: 0.5rem;
+  color: #34495e;
+}
+
+#voice-chat button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+#voice-chat button:hover {
+  background-color: #1abc9c;
+}
+
+#chat-output {
+  margin-top: 1rem;
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #2c3e50;
+}

@@ -1,0 +1,89 @@
+/* Styles for list.html */
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f0f4f8;
+  color: #2c3e50;
+  margin: 0;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow-y: auto;
+}
+
+h1 {
+  color: #2d3748;
+  margin-bottom: 15px;
+}
+
+.word-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.word-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.word-item:last-child {
+  border-bottom: none;
+}
+
+.word-item a {
+  color: #3182ce;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.word-item a:hover {
+  text-decoration: underline;
+}
+
+.btn-voice {
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-voice:hover {
+  background-color: #2b6cb0;
+}
+
+.btn {
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #2b6cb0;
+}
