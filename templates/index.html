@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ 'es' if idioma == 'español' else 'en' }}">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Diccionario de Programación</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>{{ bienvenida }}</h1>
+    <nav>
+      <ul>
+        <li>
+          <a href="{{ url_for('lista') }}"
+            >{{ 'Ver Lista Completa' if idioma == 'español' else 'View Complete
+            List' }}</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('cambiar_idioma') }}"
+            >{{ 'Cambiar Idioma' if idioma == 'español' else 'Change Language'
+            }}</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('agregar') }}"
+            >{{ 'Agregar Palabra Nueva' if idioma == 'español' else 'Add New
+            Word' }}</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('equipo') }}"
+            >{{ 'Información de los integrantes' if idioma == 'español' else
+            'Team Member Information' }}</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('buscar') }}"
+            >{{ 'Buscar por letra' if idioma == 'español' else 'Search by
+            Letter' }}</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('habbo') }}"
+            >{{ 'Conectar a Habbo' if idioma == 'español' else 'Connect to
+            Habbo' }}</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>

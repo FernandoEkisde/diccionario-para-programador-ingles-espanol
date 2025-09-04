@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ 'es' if idioma == 'español' else 'en' }}">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {{ 'Lista Completa de Palabras' if idioma == 'español' else 'Complete List
+      of Words' }}
+    </title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>
+      {{ 'Lista Completa de Palabras' if idioma == 'español' else 'Complete List
+      of Words' }}
+    </h1>
+    <ul>
+      {% for palabra, contenido in diccionario.items() %}
+      <li>
+        <a href="{{ url_for('definicion', palabra=palabra) }}">{{ palabra }}</a
+        >: {{ contenido.definicion[0] }} ({{ contenido.ejemplo[0] }})
+        <a href="{{ url_for('escuchar', palabra=palabra) }}">🔊</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}"
+      >{{ 'Volver al inicio' if idioma == 'español' else 'Back to Home' }}</a
+    >
+  </body>
+</html>

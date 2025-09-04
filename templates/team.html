@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ 'es' if idioma == 'español' else 'en' }}">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {{ 'Información de los Integrantes' if idioma == 'español' else 'Team
+      Member Information' }}
+    </title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>
+      {{ 'Información de los Integrantes' if idioma == 'español' else 'Team
+      Member Information' }}
+    </h1>
+    <ul>
+      {% for miembro in miembros %}
+      <li>
+        <strong>{{ miembro.Nombre }}</strong> ({{ miembro.Edad }} años) - {{
+        miembro.Rol }}<br />
+        {{ 'Alias' if idioma == 'español' else 'Aliases' }}: {{ miembro.Alias |
+        join(', ') }}
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}"
+      >{{ 'Volver al inicio' if idioma == 'español' else 'Back to Home' }}</a
+    >
+  </body>
+</html>

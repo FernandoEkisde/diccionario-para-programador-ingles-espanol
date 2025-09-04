@@ -1,38 +1,36 @@
-# TODO: Mejora 300% del Proyecto Diccionario para Programadores
+# TODO: Convertir Tkinter a Flask
 
 ## Información Recopilada
 
-- Proyecto: Diccionario de términos de programación en Python con voz.
-- Datos actuales: ~100 términos en diccionario Python, info de equipo.
-- Funciones: CLI, voz básica, búsqueda, agregar términos.
+- Aplicación actual: Diccionario de programación con Tkinter GUI, voz, datos en JSON
+- Funciones: Ver lista, cambiar idioma, agregar palabra, info equipo, buscar por letra, ver definición, escuchar definición
+- Datos: diccionario.json, equipo.json
 
-## Plan de Mejoras
+## Plan de Conversión
 
-1. **Separar datos a JSON**: Crear archivos JSON para diccionario y equipo.
-2. **Expandir diccionario**: Agregar ~200 términos más.
-3. **Mejorar voz (Opción 7)**: Leer todos los términos automáticamente, opciones de voz.
-4. **Agregar GUI**: Interfaz visual con Tkinter.
-5. **Optimizaciones**: Base de datos SQLite para búsquedas rápidas.
-6. **Nuevas funciones**: Exportar/importar, estadísticas.
-7. **Modularizar código**: Separar en módulos.
-8. **Pruebas**: Agregar unit tests.
+1. Instalar Flask
+2. Reescribir main.py con Flask
+3. Crear templates HTML para la interfaz
+4. Crear archivos estáticos (JS para voz, CSS para estilos)
+5. Actualizar carga y guardado de datos
+6. Probar la aplicación web
 
 ## Pasos Detallados
 
-- [x] Crear diccionario.json con términos actuales.
-- [x] Crear equipo.json con info de miembros.
-- [x] Renombrar archivo principal a main.py
-- [ ] Modificar main.py para cargar desde JSON.
-- [ ] Agregar función para leer todos los términos en secuencia.
-- [ ] Mejorar TTS: velocidad, tono.
-- [ ] Crear gui.py con Tkinter.
-- [ ] Crear database.py con SQLite.
-- [ ] Agregar export/import a JSON/CSV.
-- [ ] Optimizar búsquedas.
-- [ ] Agregar manejo de errores.
-- [ ] Probar todas las funciones.
+- [x] Instalar Flask
+- [x] Crear estructura de directorios (templates/, static/)
+- [x] Reescribir main.py: importar Flask, crear app, rutas
+- [x] Crear templates/index.html con botones y formularios
+- [x] Crear templates/list.html para mostrar lista completa
+- [x] Crear templates/team.html para info del equipo
+- [x] Crear templates/search.html para búsqueda
+- [x] Crear static/js/voice.js para reconocimiento y síntesis de voz
+- [x] Crear static/css/style.css para estilos
+- [x] Actualizar funciones para web (sin Tkinter)
+- [x] Probar todas las rutas y funciones
+- [x] Ejecutar la app con flask run
 
 ## Seguimiento
 
 - Actualizar este archivo a medida que se completen tareas.
-- Probar voz y GUI después de cambios.
+- Probar voz y navegación después de cambios.

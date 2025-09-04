@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{ 'es' if idioma == 'español' else 'en' }}">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {{ 'Buscar por Letra' if idioma == 'español' else 'Search by Letter' }}
+    </title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>
+      {{ 'Buscar por Letra' if idioma == 'español' else 'Search by Letter' }}
+    </h1>
+    <form method="post">
+      <label for="letra"
+        >{{ 'Ingrese la letra' if idioma == 'español' else 'Enter the letter'
+        }}:</label
+      >
+      <input type="text" id="letra" name="letra" maxlength="1" required />
+      <button type="submit">
+        {{ 'Buscar' if idioma == 'español' else 'Search' }}
+      </button>
+    </form>
+    {% if resultado %}
+    <h2>
+      {{ 'Palabras que comienzan con' if idioma == 'español' else 'Words that
+      start with' }} '{{ letra }}'
+    </h2>
+    <ul>
+      {% for palabra in resultado %}
+      <li>
+        <a href="{{ url_for('definicion', palabra=palabra) }}">{{ palabra }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <a href="{{ url_for('index') }}"
+      >{{ 'Volver al inicio' if idioma == 'español' else 'Back to Home' }}</a
+    >
+  </body>
+</html>

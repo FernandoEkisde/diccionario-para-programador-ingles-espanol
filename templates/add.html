@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ 'es' if idioma == 'español' else 'en' }}">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {{ 'Agregar Palabra Nueva' if idioma == 'español' else 'Add New Word' }}
+    </title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>
+      {{ 'Agregar Palabra Nueva' if idioma == 'español' else 'Add New Word' }}
+    </h1>
+    <form method="post">
+      <label for="palabra"
+        >{{ 'Palabra' if idioma == 'español' else 'Word' }}:</label
+      >
+      <input type="text" id="palabra" name="palabra" required /><br />
+      <label for="definicion"
+        >{{ 'Definición' if idioma == 'español' else 'Definition' }}:</label
+      >
+      <input type="text" id="definicion" name="definicion" required /><br />
+      <label for="traduccion"
+        >{{ 'Traducción' if idioma == 'español' else 'Translation' }}:</label
+      >
+      <input type="text" id="traduccion" name="traduccion" required /><br />
+      <button type="submit">
+        {{ 'Agregar' if idioma == 'español' else 'Add' }}
+      </button>
+    </form>
+    {% if mensaje %}
+    <p>{{ mensaje }}</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}"
+      >{{ 'Volver al inicio' if idioma == 'español' else 'Back to Home' }}</a
+    >
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ 'es' if idioma == 'español' else 'en' }}">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ 'Definición' if idioma == 'español' else 'Definition' }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>
+      {{ 'Definición de' if idioma == 'español' else 'Definition of' }} {{
+      palabra }}
+    </h1>
+    {% if definicion %}
+    <p><strong>{{ definicion }}</strong></p>
+    <p>
+      {{ 'Traducción' if idioma == 'español' else 'Translation' }}: {{
+      traduccion }}
+    </p>
+    <a href="{{ url_for('escuchar', palabra=palabra) }}"
+      >{{ 'Escuchar' if idioma == 'español' else 'Listen' }}</a
+    >
+    {% else %}
+    <p>{{ mensaje }}</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}"
+      >{{ 'Volver al inicio' if idioma == 'español' else 'Back to Home' }}</a
+    >
+  </body>
+</html>
