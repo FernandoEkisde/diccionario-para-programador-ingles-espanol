@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 import json
 import pyttsx3
 import speech_recognition as sr
-import webbrowser
 import os
 
 app = Flask(__name__)
@@ -127,6 +126,12 @@ def cambiar_idioma():
     else:
         idioma_actual = "español"
     return redirect(url_for('index'))
+
+@app.route('/api/idioma')
+def get_idioma():
+    """API endpoint to get current language for voice assistant"""
+    lang_code = "es-ES" if idioma_actual == "español" else "en-US"
+    return jsonify({"idioma": idioma_actual, "lang_code": lang_code})
 
 @app.route('/habbo')
 def habbo():

@@ -11,18 +11,24 @@
             "Aliases": ["The Code Architect", "The Technical Visionary"]
         }
     },
-    {
-        "Nombre": "Jesús Vidal",
-        "Edad": 16,
-        "Rol": "Integrante de desarrollo",
-        "Alias": ["El ejecutor del código", "El constructor ágil"],
-        "Translation": {
-            "Name": "Jesús Vidal",
-            "Age": 16,
-            "Role": "Development Member",
-            "Aliases": ["The Code Executor", "The Agile Builder"]
-        }
-    },
+   {
+    "Nombre": "Jesús Vidal",
+    "Edad": 16,
+    "Rol": "Traductor y miembro del equipo de desarrollo",
+    "Alias": [
+        "El Ejecutor del Código",
+        "El Constructor Ágil"
+    ],
+    "Translation": {
+        "Name": "Jesús Vidal",
+        "Age": 16,
+        "Role": "Translator and Development Team Member",
+        "Aliases": [
+            "The Code Executor",
+            "The Agile Builder"
+        ]
+    }
+},
     {
         "Nombre": "Maximiliano Veliz",
         "Edad": 17,

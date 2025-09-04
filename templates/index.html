@@ -2,68 +2,440 @@
 <html lang="{{ 'es' if idioma == 'español' else 'en' }}">
   <head>
     <meta charset="UTF-8" />
-    <title>Diccionario de Programación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {{ 'Diccionario Técnico de Programación' if idioma == 'español' else
+      'Programming Technical Dictionary' }}
+    </title>
+    <meta
+      name="description"
+      content="{{ 'Diccionario completo de términos técnicos de programación con soporte multilingüe y voz' if idioma == 'español' else 'Complete programming technical dictionary with multilingual support and voice' }}"
+    />
+    <!-- Foundation CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css"
+    />
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom styles -->
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/index.css') }}"
     />
   </head>
   <body>
-    <h1>{{ bienvenida }}</h1>
-    <nav>
-      <ul>
-        <li>
-          <a href="{{ url_for('lista') }}"
-            >{{ 'Ver Lista Completa' if idioma == 'español' else 'View Complete
-            List' }}</a
+    <div class="container mx-auto px-4 py-8">
+      <!-- Header -->
+      <header class="text-center mb-12">
+        <h1
+          class="text-5xl md:text-6xl font-bold text-yellow-400 mb-6 animate-pulse"
+        >
+          {{ '🚀 Diccionario Técnico de Programación' if idioma == 'español'
+          else '🚀 Programming Technical Dictionary' }}
+        </h1>
+        <p class="text-xl text-gray-300 mb-4">{{ bienvenida }}</p>
+        <div class="flex justify-center space-x-4 text-sm text-gray-400">
+          <span
+            >📖 {{ 'Más de 500 términos' if idioma == 'español' else 'Over 500
+            terms' }}</span
           >
-        </li>
-        <li>
-          <a href="{{ url_for('cambiar_idioma') }}"
-            >{{ 'Cambiar Idioma' if idioma == 'español' else 'Change Language'
-            }}</a
+          <span
+            >🌍 {{ 'Bilingüe Español/Inglés' if idioma == 'español' else
+            'Bilingual Spanish/English' }}</span
           >
-        </li>
-        <li>
-          <a href="{{ url_for('agregar') }}"
-            >{{ 'Agregar Palabra Nueva' if idioma == 'español' else 'Add New
-            Word' }}</a
+          <span
+            >🎤 {{ 'Soporte de voz' if idioma == 'español' else 'Voice support'
+            }}</span
           >
-        </li>
-        <li>
-          <a href="{{ url_for('equipo') }}"
-            >{{ 'Información de los integrantes' if idioma == 'español' else
-            'Team Member Information' }}</a
-          >
-        </li>
-        <li>
-          <a href="{{ url_for('buscar') }}"
-            >{{ 'Buscar por letra' if idioma == 'español' else 'Search by
-            Letter' }}</a
-          >
-        </li>
-        <li>
-          <a href="{{ url_for('habbo') }}"
-            >{{ 'Conectar a Habbo' if idioma == 'español' else 'Connect to
-            Habbo' }}</a
-          >
-        </li>
-      </ul>
-    </nav>
+        </div>
+      </header>
 
-    <!-- Voice Chat Section -->
-    <section id="voice-chat" class="voice-chat">
-      <h2>{{ 'Chat de Voz' if idioma == 'español' else 'Voice Chat' }}</h2>
-      <p>
-        {{ 'Habla para buscar una palabra o pedir una definición.' if idioma ==
-        'español' else 'Speak to search for a word or ask for a definition.' }}
-      </p>
-      <button id="voice-btn" class="btn">
-        {{ 'Hablar' if idioma == 'español' else 'Speak' }}
-      </button>
-      <div id="chat-output"></div>
-    </section>
+      <!-- Features Overview -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold text-yellow-400 mb-8 text-center">
+          {{ '✨ Características Principales' if idioma == 'español' else '✨
+          Main Features' }}
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700 hover:border-blue-500 transition duration-300"
+          >
+            <div class="text-4xl mb-4">📚</div>
+            <h3 class="text-xl font-semibold text-blue-400 mb-2">
+              {{ 'Catálogo Completo' if idioma == 'español' else 'Complete
+              Catalog' }}
+            </h3>
+            <p class="text-gray-300">
+              {{ 'Accede a una amplia colección de términos técnicos de
+              programación, desde conceptos básicos hasta tecnologías
+              avanzadas.' if idioma == 'español' else 'Access a wide collection
+              of programming technical terms, from basic concepts to advanced
+              technologies.' }}
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700 hover:border-blue-500 transition duration-300"
+          >
+            <div class="text-4xl mb-4">🎤</div>
+            <h3 class="text-xl font-semibold text-blue-400 mb-2">
+              {{ 'Búsqueda por Voz' if idioma == 'español' else 'Voice Search'
+              }}
+            </h3>
+            <p class="text-gray-300">
+              {{ 'Utiliza comandos de voz para buscar definiciones. Compatible
+              con español e inglés.' if idioma == 'español' else 'Use voice
+              commands to search for definitions. Compatible with Spanish and
+              English.' }}
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700 hover:border-blue-500 transition duration-300"
+          >
+            <div class="text-4xl mb-4">🌍</div>
+            <h3 class="text-xl font-semibold text-blue-400 mb-2">
+              {{ 'Multilingüe' if idioma == 'español' else 'Multilingual' }}
+            </h3>
+            <p class="text-gray-300">
+              {{ 'Interfaz completamente bilingüe. Cambia entre español e inglés
+              según tu preferencia.' if idioma == 'español' else 'Fully
+              bilingual interface. Switch between Spanish and English as you
+              prefer.' }}
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700 hover:border-blue-500 transition duration-300"
+          >
+            <div class="text-4xl mb-4">🔍</div>
+            <h3 class="text-xl font-semibold text-blue-400 mb-2">
+              {{ 'Búsqueda Avanzada' if idioma == 'español' else 'Advanced
+              Search' }}
+            </h3>
+            <p class="text-gray-300">
+              {{ 'Busca términos por letra inicial o utiliza la búsqueda
+              completa para encontrar exactamente lo que necesitas.' if idioma
+              == 'español' else 'Search terms by initial letter or use full
+              search to find exactly what you need.' }}
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700 hover:border-blue-500 transition duration-300"
+          >
+            <div class="text-4xl mb-4">👥</div>
+            <h3 class="text-xl font-semibold text-blue-400 mb-2">
+              {{ 'Colaborativo' if idioma == 'español' else 'Collaborative' }}
+            </h3>
+            <p class="text-gray-300">
+              {{ 'Contribuye con nuevos términos y ayuda a expandir nuestro
+              diccionario comunitario.' if idioma == 'español' else 'Contribute
+              new terms and help expand our community dictionary.' }}
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700 hover:border-blue-500 transition duration-300"
+          >
+            <div class="text-4xl mb-4">📱</div>
+            <h3 class="text-xl font-semibold text-blue-400 mb-2">
+              {{ 'Responsive' if idioma == 'español' else 'Responsive' }}
+            </h3>
+            <p class="text-gray-300">
+              {{ 'Diseño adaptativo que funciona perfectamente en desktop,
+              tablet y móvil.' if idioma == 'español' else 'Adaptive design that
+              works perfectly on desktop, tablet and mobile.' }}
+            </p>
+          </div>
+        </div>
+      </section>
 
+      <!-- Statistics Section -->
+      <section class="mb-12">
+        <div
+          class="bg-gradient-to-r from-blue-900 to-purple-900 rounded-lg p-8 shadow-lg"
+        >
+          <h2 class="text-3xl font-bold text-yellow-400 mb-8 text-center">
+            {{ '📊 Estadísticas del Diccionario' if idioma == 'español' else '📊
+            Dictionary Statistics' }}
+          </h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="bg-gray-800 rounded-lg p-4">
+              <div class="text-3xl font-bold text-blue-400 mb-2">500+</div>
+              <div class="text-gray-300">
+                {{ 'Términos' if idioma == 'español' else 'Terms' }}
+              </div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4">
+              <div class="text-3xl font-bold text-green-400 mb-2">2</div>
+              <div class="text-gray-300">
+                {{ 'Idiomas' if idioma == 'español' else 'Languages' }}
+              </div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4">
+              <div class="text-3xl font-bold text-yellow-400 mb-2">24/7</div>
+              <div class="text-gray-300">
+                {{ 'Disponible' if idioma == 'español' else 'Available' }}
+              </div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4">
+              <div class="text-3xl font-bold text-red-400 mb-2">∞</div>
+              <div class="text-gray-300">
+                {{ 'Posibilidades' if idioma == 'español' else 'Possibilities'
+                }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Navigation -->
+      <nav class="mb-12">
+        <h2 class="text-3xl font-bold text-yellow-400 mb-6 text-center">
+          {{ '🧭 Navegación Rápida' if idioma == 'español' else '🧭 Quick
+          Navigation' }}
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <a
+            href="{{ url_for('lista') }}"
+            class="bg-blue-600 hover:bg-yellow-500 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 text-center transform hover:scale-105"
+          >
+            <div class="text-2xl mb-2">📚</div>
+            {{ 'Ver Lista Completa' if idioma == 'español' else 'View Complete
+            List' }}
+          </a>
+          <a
+            href="{{ url_for('cambiar_idioma') }}"
+            class="bg-blue-600 hover:bg-yellow-500 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 text-center transform hover:scale-105"
+          >
+            <div class="text-2xl mb-2">🌍</div>
+            {{ 'Cambiar Idioma' if idioma == 'español' else 'Change Language' }}
+          </a>
+          <a
+            href="{{ url_for('agregar') }}"
+            class="bg-blue-600 hover:bg-yellow-500 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 text-center transform hover:scale-105"
+          >
+            <div class="text-2xl mb-2">➕</div>
+            {{ 'Agregar Palabra Nueva' if idioma == 'español' else 'Add New
+            Word' }}
+          </a>
+          <a
+            href="{{ url_for('equipo') }}"
+            class="bg-blue-600 hover:bg-yellow-500 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 text-center transform hover:scale-105"
+          >
+            <div class="text-2xl mb-2">👥</div>
+            {{ 'Información del Equipo' if idioma == 'español' else 'Team
+            Information' }}
+          </a>
+          <a
+            href="{{ url_for('buscar') }}"
+            class="bg-blue-600 hover:bg-yellow-500 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 text-center transform hover:scale-105"
+          >
+            <div class="text-2xl mb-2">🔍</div>
+            {{ 'Buscar por Letra' if idioma == 'español' else 'Search by Letter'
+            }}
+          </a>
+          <a
+            href="{{ url_for('habbo') }}"
+            class="bg-red-600 hover:bg-red-500 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 text-center transform hover:scale-105"
+          >
+            <div class="text-2xl mb-2">🎮</div>
+            {{ 'Conectar a Habbo' if idioma == 'español' else 'Connect to Habbo'
+            }}
+          </a>
+        </div>
+      </nav>
+
+      <!-- Recent Additions -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold text-yellow-400 mb-6 text-center">
+          {{ '🆕 Términos Recientes' if idioma == 'español' else '🆕 Recent
+          Terms' }}
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700"
+          >
+            <h3 class="text-xl font-semibold text-blue-400 mb-2">
+              Machine Learning
+            </h3>
+            <p class="text-gray-300 text-sm mb-3">
+              {{ 'Aprendizaje automático: Tecnología que permite a las
+              computadoras aprender sin ser programadas explícitamente.' if
+              idioma == 'español' else 'Machine Learning: Technology that allows
+              computers to learn without being explicitly programmed.' }}
+            </p>
+            <a
+              href="{{ url_for('definicion', palabra='machine learning') }}"
+              class="text-yellow-400 hover:text-yellow-300 text-sm"
+            >
+              {{ 'Ver definición completa →' if idioma == 'español' else 'View
+              full definition →' }}
+            </a>
+          </div>
+          <div
+            class="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700"
+          >
+            <h3 class="text-xl font-semibold text-blue-400 mb-2">Blockchain</h3>
+            <p class="text-gray-300 text-sm mb-3">
+              {{ 'Cadena de bloques: Tecnología de registro distribuido que
+              mantiene una lista creciente de registros.' if idioma == 'español'
+              else 'Blockchain: Distributed ledger technology that maintains a
+              growing list of records.' }}
+            </p>
+            <a
+              href="{{ url_for('definicion', palabra='blockchain') }}"
+              class="text-yellow-400 hover:text-yellow-300 text-sm"
+            >
+              {{ 'Ver definición completa →' if idioma == 'español' else 'View
+              full definition →' }}
+            </a>
+          </div>
+          <div
+            class="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700"
+          >
+            <h3 class="text-xl font-semibold text-blue-400 mb-2">DevOps</h3>
+            <p class="text-gray-300 text-sm mb-3">
+              {{ 'Metodología que combina desarrollo de software y operaciones
+              IT para acortar el ciclo de vida del desarrollo.' if idioma ==
+              'español' else 'Methodology that combines software development and
+              IT operations to shorten the development lifecycle.' }}
+            </p>
+            <a
+              href="{{ url_for('definicion', palabra='devops') }}"
+              class="text-yellow-400 hover:text-yellow-300 text-sm"
+            >
+              {{ 'Ver definición completa →' if idioma == 'español' else 'View
+              full definition →' }}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Voice Chat Section -->
+      <section
+        id="voice-chat"
+        class="bg-gray-800 rounded-lg p-8 shadow-lg mb-12"
+      >
+        <h2 class="text-3xl font-bold text-yellow-400 mb-6 text-center">
+          {{ '🎤 Asistente de Voz Inteligente' if idioma == 'español' else '🎤
+          Intelligent Voice Assistant' }}
+        </h2>
+        <p class="text-gray-300 mb-6 text-center">
+          {{ 'Nuestro asistente de voz puede ayudarte a buscar términos
+          técnicos. Simplemente di el nombre del término que quieres buscar.' if
+          idioma == 'español' else 'Our voice assistant can help you search for
+          technical terms. Just say the name of the term you want to search
+          for.' }}
+        </p>
+        <div class="text-center mb-6">
+          <button
+            id="voice-btn"
+            class="bg-blue-600 hover:bg-yellow-500 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 text-lg"
+          >
+            {{ '🎙️ Iniciar Conversación' if idioma == 'español' else '🎙️ Start
+            Conversation' }}
+          </button>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-lg max-h-80 overflow-y-auto">
+          <div id="chat-output" class="space-y-3">
+            <div class="text-center text-gray-400 italic">
+              {{ 'Di "Hola" para comenzar o menciona un término técnico...' if
+              idioma == 'español' else 'Say "Hello" to start or mention a
+              technical term...' }}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials/Community Section -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold text-yellow-400 mb-8 text-center">
+          {{ '💬 Lo que dicen nuestros usuarios' if idioma == 'español' else '💬
+          What our users say' }}
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-4"
+              >
+                JD
+              </div>
+              <div>
+                <div class="font-semibold text-blue-400">Juan Developer</div>
+                <div class="text-sm text-gray-400">
+                  {{ 'Desarrollador Full Stack' if idioma == 'español' else
+                  'Full Stack Developer' }}
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300 italic">
+              "{{ 'Este diccionario me ha sido invaluable durante mi aprendizaje
+              de programación. La función de voz es especialmente útil cuando
+              estoy cocinando o conduciendo.' if idioma == 'español' else 'This
+              dictionary has been invaluable during my programming learning. The
+              voice function is especially useful when I am cooking or driving.'
+              }}"
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-4"
+              >
+                MC
+              </div>
+              <div>
+                <div class="font-semibold text-blue-400">María Coder</div>
+                <div class="text-sm text-gray-400">
+                  {{ 'Estudiante de Ingeniería' if idioma == 'español' else
+                  'Engineering Student' }}
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300 italic">
+              "{{ 'La interfaz bilingüe me permite estudiar en español e inglés
+              simultáneamente. ¡Una herramienta perfecta para estudiantes!' if
+              idioma == 'español' else 'The bilingual interface allows me to
+              study in Spanish and English simultaneously. A perfect tool for
+              students!' }}"
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="text-center text-gray-400 border-t border-gray-700 pt-8">
+        <p class="mb-4">
+          {{ 'Diccionario Técnico de Programación - Tu compañero de aprendizaje'
+          if idioma == 'español' else 'Programming Technical Dictionary - Your
+          learning companion' }}
+        </p>
+        <div class="flex justify-center space-x-6 text-sm">
+          <span
+            >{{ '🚀 Versión 2.0' if idioma == 'español' else '🚀 Version 2.0'
+            }}</span
+          >
+          <span
+            >{{ '📅 Actualizado 2024' if idioma == 'español' else '📅 Updated
+            2024' }}</span
+          >
+          <span
+            >{{ '👨‍💻 Hecho con ❤️' if idioma == 'español' else '👨‍💻 Made with ❤️'
+            }}</span
+          >
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js"></script>
     <script src="{{ url_for('static', filename='js/voice.js') }}"></script>
     <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
   </body>
